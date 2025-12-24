@@ -85,7 +85,7 @@ header {
 }
 
 .avatar:hover img {
-  content: url("assets/Messenger_creation_8EF47A7B-EE56-4D18-9EFE-732109C9DAE9.jpeg"); /* swap to profile1.png on hover */
+  content: url("assets/khuyab.jpeg"); /* swap to profile1.png on hover */
 }
 
 @media (max-width: 768px) {
