@@ -85,7 +85,7 @@ header {
 }
 
 .avatar:hover img {
-  content: url("assets/khuyab.jpeg"); /* swap to profile1.png on hover */
+  content: url("assets/khuyab.jpg"); /* swap to profile1.png on hover */
 }
 
 @media (max-width: 768px) {
