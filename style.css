@@ -600,12 +600,12 @@ main {
 
 @media (max-width: 768px) {
   main {
-    grid-template-columns: 5fr; /* stacked full width */
+    grid-template-columns: 7fr; /* stacked full width */
     gap: 12px; /* tighter spacing */
   }
 
   .card {
-    max-width: 100%; /* make cards full width */
+    max-width: 200%; /* make cards full width */
     padding: 12px;
   }
 
@@ -614,6 +614,26 @@ main {
     display: block; /* reset in case flex messed it up */
   
   }
+
+  @media (max-width: 768px) {
+  .container {
+    padding: 10px; /* bawasan padding sa gilid */
+    margin-top: 20px; /* optional, konting spacing sa taas */
+  }
+
+  .card {
+    margin-left: 0;   /* tanggalin auto margins */
+    margin-right: 0;  /* tanggalin auto margins */
+    width: 100%;      /* siguraduhin full width */
+    max-width: 100%;  /* walang limit */
+    padding: 12px;    /* kaunting padding sa loob */
+    border-radius: 10px; /* pwede bawasan kung gusto mo mas dikit sa gilid */
+  }
+
+  aside {
+    width: 100%; /* full width for sidebar content */
+  }
+}
 
   header {
     flex-direction: row;
@@ -715,7 +735,9 @@ main {
 
 
 
-/* Dark Mode */
+/* ================================
+Dark Mode
+================================ */
 body.dark-mode {
   --bg: #0d0d0d;
   --card: #1a1a1a;
@@ -724,10 +746,10 @@ body.dark-mode {
   --gradient: linear-gradient(90deg, #ffffff, #666666);
   --border: rgba(255,255,255,0.15);
   --btn-bg: transparent;
-  --btn-hover-bg: #fff;      /* dark mode hover background */
-  --btn-color: #fff;          /* dark mode text */
-  --btn-hover-color: #000;    /* dark mode hover text */
-  --btn-border: rgba(255,255,255,0.2); /* dark mode border */
+  --btn-hover-bg: #fff;      
+  --btn-color: #fff;          
+  --btn-hover-color: #000;    
+  --btn-border: rgba(255,255,255,0.2);
   
   background: var(--bg);
   color: #ffffff;
@@ -756,9 +778,59 @@ body.dark-mode footer {
   color: var(--muted);
 }
 
-/* Desktop – sticky sa screen */
+body.dark-mode .floater-messenger {
+  background-color: #00a2ff;
+  color: #fff;
+}
+
+/* ================================
+Mobile / Small Screens Adjustments
+================================ */
+@media (max-width: 480px) {
+  /* Header text - name and verified tick */
+  .hero h1 {
+    font-size: 1.5rem !important; /* pataasin ang text size */
+    line-height: 1.2 !important;  
+    gap: 0 !important;            /* walang spacing sa pagitan ng text at icon */
+  }
+
+  .hero h1 img {
+    width: 20px !important;       
+    height: 20px !important;
+  }
+
+  /* Sub info - location and role */
+  .sub.location,
+  .sub.role {
+    font-size: 0.85rem !important; 
+    line-height: 1.2 !important;   
+    margin-top: 0 !important;      
+  }
+
+  /* Badges/buttons spacing */
+  .badges {
+    gap: 4px !important; 
+  }
+
+  /* Dark toggle button adjustments */
+  #darkToggle {
+    padding: 4px 8px;         /* mas maliit na button */
+    font-size: 0.65rem;       /* mas maliit na text */
+    top: 5px;                 
+    right: 5px;
+    border-radius: 8px;       
+  }
+
+  #darkToggle i {
+    font-size: 0.8rem;        /* icon mas maliit */
+  }
+}
+
+/* ================================
+Dark Mode Toggle Button - Desktop Default
+================================ */
 #darkToggle {
-  position: absolute;  /* relative sa header container */
+  position: absolute;  
   top: 0;
   right: 0;
   margin: 5px;
@@ -776,10 +848,8 @@ body.dark-mode footer {
 #darkToggle:hover {
   background-color: var(--btn-hover-bg);
   color: var(--btn-hover-color);
-  transform: translateY(-2px);
+  transform: translateY(calc(-50% - 2px)); /* vertical center + move up 2px */
 }
-
-
 /* Floater Messenger Button */
 .floater-messenger {
   position: fixed;
