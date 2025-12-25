@@ -90,7 +90,7 @@ header {
 }
 
 h1 {
-  font-size: 1rem !important;
+  font-size: 2rem !important;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
@@ -109,19 +109,17 @@ hr {
   border-top: 1px solid var(--border);
 }
 
-.sub {
-  margin-top: 5px;
-}
-
 .sub.location {
   color: var(--muted);
-  font-size: 0.6rem;
+   font-size: 1rem !important;
+    line-height: 1.5 !important;
+    margin-top: 0 !important;
 }
 
 .sub.role {
-  margin-top: 20px;
-  font-weight: 400;
-  font-size: 0.7rem;
+   font-size: 1rem !important;
+    line-height: 1.5 !important;
+    margin-top: 0 !important;
 }
 
 aside {
@@ -542,7 +540,7 @@ footer i {
 
   .sub.location,
   .sub.role {
-    font-size: 0.55rem !important;
+    font-size: 2rem !important;
     line-height: 1.2 !important;
   }
 
@@ -647,8 +645,8 @@ footer i {
 
   .sub.location,
   .sub.role {
-    font-size: 0.85rem !important;
-    line-height: 1.2 !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
     margin-top: 0 !important;
   }
 
