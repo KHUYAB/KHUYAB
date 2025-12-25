@@ -1,14 +1,14 @@
-// 🌙 Dark mode toggle
+
 const toggle = document.getElementById("darkToggle");
 
-if (toggle) {
-  toggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    toggle.innerHTML = document.body.classList.contains("dark-mode")
-      ? '<i class="fa-solid fa-moon"></i> Dark'
-      : '<i class="fa-solid fa-sun"></i> Light';
-  });
-}
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  toggle.innerHTML = document.body.classList.contains("dark-mode")
+    ? '<i class="fa-solid fa-moon"></i>'
+    : '<i class="fa-solid fa-sun"></i>';
+});
+
 
 // 🎞️ Carousel (safe check)
 const track = document.querySelector(".carousel-track");
