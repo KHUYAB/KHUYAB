@@ -538,28 +538,37 @@ footer i {
     line-height: 1.2 !important;
   }
 
-  .badges {
-    gap: 4px !important;
-  }
 
-  .badges a,
-  .badges button {
-    font-size: 0.8rem !important;
-    padding: 4px 8px !important;
-  }
-
-  .project {
-    width: 100% !important;
-  }
-@media (max-width: 480px) {
-  .badges a.primary {
-    width: 100%;           /* full width sa screen */
-    text-align: center;    /* center ang text */
-    padding: 12px 16px;    /* mas malaking tap area */
-    font-size: 1rem;       /* readable text */
-  }
+.badges {
+  display: flex;
+  flex-wrap: wrap; /* allow wrapping */
+  justify-content: center; /* always center items */
+  gap: 6px; /* proper spacing */
+  margin-top: 10px;
 }
 
+.badges a,
+.badges button {
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  white-space: nowrap; /* prevent broken text */
+}
+
+/* MOBILE FIX — iPhone 11 & similar screens */
+@media (max-width: 480px) {
+  .badges a,
+  .badges button {
+    flex: 1 1 calc(50% - 6px); 
+    text-align: center;
+  }
+
+  /* Make primary button full width on small screens */
+  .badges a.primary {
+    flex-basis: 100%;
+    font-size: 1rem;
+    padding: 12px 18px;
+  }
+}
   
   main {
     grid-template-columns: 1fr;
@@ -619,7 +628,6 @@ footer i {
     object-fit: contain;
   }
 
-
   #darkToggle {
     position: absolute;
     top: 10%; /* ✨ Babaan ng konti */
@@ -643,12 +651,7 @@ footer i {
     line-height: 1.5 !important;
     margin-top: 0 !important;
   }
-
-  .badges {
-    gap: 4px !important;
-  }
 }
-
 
 body.dark-mode {
   --bg: #0d0d0d;
@@ -675,7 +678,6 @@ body.dark-mode .btn.primary {
   background: var(--gradient);
   color: #ffffff; /* make text white */
 }
-
 
 body.dark-mode .chip {
   background: rgba(255, 255, 255, 0.1);
