@@ -5,8 +5,8 @@ if (toggle) {
   toggle.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
     toggle.innerHTML = document.body.classList.contains("dark-mode")
-      ? '<i class="fa-solid fa-moon"></i> Dark Mode'
-      : '<i class="fa-solid fa-sun"></i> Light Mode';
+      ? '<i class="fa-solid fa-moon"></i> Dark'
+      : '<i class="fa-solid fa-sun"></i> Light';
   });
 }
 
@@ -123,3 +123,4 @@ if (track && images.length && dotsContainer) {
   updateCarousel();
   startAutoPlay();
 }
+
