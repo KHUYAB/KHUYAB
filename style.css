@@ -544,7 +544,7 @@ footer i {
 
   .badges a,
   .badges button {
-    font-size: 0.4rem !important;
+    font-size: 0.8rem !important;
     padding: 4px 8px !important;
   }
 
@@ -552,6 +552,7 @@ footer i {
     width: 100% !important;
   }
 
+  
   main {
     grid-template-columns: 1fr;
     gap: 16px;
