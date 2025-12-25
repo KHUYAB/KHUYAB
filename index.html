@@ -712,25 +712,18 @@ body.dark .hero-card {
     <i class="fas fa-image"></i>
     Gallery
   </div>
-
   <div class="gallery-scroll-wrapper">
-
     <button id="scrollLeft" class="scroll-btn left">
       <i class="fas fa-chevron-left"></i>
     </button>
-
     <div id="image-list" class="image-list">
       <!-- Cards injected by JS -->
     </div>
-
     <button id="scrollRight" class="scroll-btn right">
       <i class="fas fa-chevron-right"></i>
     </button>
-
   </div>
-
 </article>
-
  <style>
 .gallery-scroll-wrapper {
   position: relative;
@@ -773,7 +766,6 @@ body.dark .hero-card {
     font-size: 16px;
   }
 }
-
 
 .scroll-btn.left {
   position: absolute;
@@ -820,10 +812,90 @@ body.dark .hero-card {
 body.dark-mode .timeline-card img {
   border-color: #ffffff;
 }
+
+/* 📱 MOBILE VIEW */
+@media (max-width: 768px) {
+
+  .image-list {
+    gap: 0; /* walang pagitan para sakop buong width */
+    overflow-x: scroll;
+  }
+
+  .timeline-card {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .timeline-card img {
+    width: 92%;
+    height: auto;
+    max-height: 260px;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+
+  /* ilapit buttons sa image */
+  .scroll-btn.left {
+    left: 8px;
+  }
+
+  .scroll-btn.right {
+    right: 8px;
+  }
+}
+
+#image-articles-section {
+  padding-top: 5px;   /* mas dikit sa title */
+}
+
+.card-title {
+  margin-bottom: 5px; /* bawas gap sa baba ng title */
+}
+
+
+@media (max-width: 768px) {
+
+  .image-list {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .timeline-card {
+    min-width: 100%;
+  }
+
+  .timeline-card img {
+    width: 94%;
+    height: 320px;        /* ⬅️ mas mataas */
+    max-height: none;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+}/* 🖥️ DESKTOP VIEW — EXACT 5 IMAGES */
+@media (min-width: 769px) {
+
+  .image-list {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+    overflow-x: hidden;
+  }
+
+  .timeline-card {
+    flex: 0 0 calc((100% - 80px) / 5);
+    /* 4 gaps × 20px = 80px */
+  }
+
+  .timeline-card img {
+    width: 100%;
+    height: 160px;
+  }
+}
  </style>
  <script>
  const imageList = document.getElementById("image-list");
-
 const imageData = [
   { src: "assets/animation/1.jpg" },
   { src: "assets/animation/2.jpg" },
@@ -852,21 +924,27 @@ function loadImages() {
 
 loadImages();
 
-const scrollLeft = document.getElementById("scrollLeft");
-const scrollRight = document.getElementById("scrollRight");
-
 function scrollSmooth(direction) {
-  const step = 260;
+  const isMobile = window.innerWidth <= 768;
+
+  let step;
+
+  if (isMobile) {
+    step = imageList.clientWidth; // 1 image full width (mobile)
+  } else {
+    const card = imageList.querySelector(".timeline-card");
+    step = card.offsetWidth + 20; // 1 image + gap (desktop)
+  }
+
   imageList.scrollTo({
     left: imageList.scrollLeft + (step * direction),
     behavior: "smooth"
   });
-}
-
+} 
 scrollLeft.addEventListener("click", () => scrollSmooth(-1));
 scrollRight.addEventListener("click", () => scrollSmooth(1));
-
  </script>
+
 
 </article>  
     <!-- Footer -->
