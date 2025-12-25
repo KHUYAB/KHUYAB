@@ -633,7 +633,7 @@ footer i {
 
 @media (max-width: 480px) {
   .hero h1 {
-    font-size: 1.5rem !important;
+    font-size: 1.3rem !important;
     line-height: 1.2 !important;
     gap: 4px !important; /* maliit na space sa pagitan ng text at icon */
     display: inline-flex; /* para text at img mag-line sa isang row */
@@ -648,8 +648,8 @@ footer i {
 
   #darkToggle {
     position: absolute;
-    top: 10%; /* ✨ Babaan ng konti */
-    right: 2px;
+    top: 6%; /* ✨ Babaan ng konti */
+    right: 0px;
     transform: translateY(-50%);
     margin: 0;
     z-index: 10;
