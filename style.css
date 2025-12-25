@@ -500,12 +500,6 @@ footer i {
   transition: all 0.3s ease;
 }
 
-#darkToggle:hover {
-  background-color: var(--btn-hover-bg);
-  color: var(--btn-hover-color);
-  transform: translateY(-50%) translateY(-2px);
-}
-
 .projects-list .project small {
   color: #000;
 }
@@ -605,13 +599,22 @@ footer i {
   .hero h1 {
     font-size: 1.5rem !important;
     line-height: 1.2 !important;
-    gap: 0 !important;
+    gap: 4px !important; /* maliit na space sa pagitan ng text at icon */
+    display: inline-flex; /* para text at img mag-line sa isang row */
+    align-items: center;  /* vertical center ng icon sa text */
   }
+
+  .hero h1 img {
+    width: 20px !important; /* mas maliit sa mobile */
+    height: 20px !important;
+    object-fit: contain;
+  }
+
 
   #darkToggle {
     position: absolute;
-    top: 30%;
-    right: 16px;
+    top: 10%; /* ✨ Babaan ng konti */
+    right: 2px;
     transform: translateY(-50%);
     margin: 0;
     z-index: 10;
@@ -625,11 +628,6 @@ footer i {
     transition: all 0.3s ease;
   }
 
-  #darkToggle:hover {
-    background-color: var(--btn-hover-bg);
-    color: var(--btn-hover-color);
-  }
-
   .sub.location,
   .sub.role {
     font-size: 1rem !important;
@@ -640,25 +638,8 @@ footer i {
   .badges {
     gap: 4px !important;
   }
-
-  #darkToggle {
-    top: 0;
-    right: 0;
-  }
-
-  #darkToggle i {
-    font-size: 0.8rem;
-  }
-
-  .badges .btn {
-    padding: 10px 16px;
-    font-size: 0.85rem;
-  }
-
-  .badges .btn i {
-    margin-right: 6px;
-  }
 }
+
 
 body.dark-mode {
   --bg: #0d0d0d;
