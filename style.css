@@ -794,10 +794,35 @@ Mobile / Small Screens Adjustments
     gap: 0 !important;            /* walang spacing sa pagitan ng text at icon */
   }
 
+  @media (max-width: 480px) {
   .hero h1 img {
-    width: 20px !important;       
-    height: 20px !important;
+    margin-left: 4px;   /* mas maliit na space sa mobile */
+    width: 20px;         /* optional, mas maliit na icon sa mobile */
+    height: 20px;
   }
+}
+
+#darkToggle {
+  position: absolute;
+  top: 30%; /* pataasin mula sa top ng header */
+  right: 16px;
+  transform: translateY(-50%); /* optional, para naka-adjust pa rin */
+  margin: 0;
+  z-index: 10;
+  white-space: nowrap;
+  border: 1px solid var(--btn-border);
+  border-radius: 10px;
+  padding: 6px 12px;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#darkToggle:hover {
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-color);
+}
 
   /* Sub info - location and role */
   .sub.location,
@@ -848,8 +873,9 @@ Dark Mode Toggle Button - Desktop Default
 #darkToggle:hover {
   background-color: var(--btn-hover-bg);
   color: var(--btn-hover-color);
-  transform: translateY(calc(-50% - 2px)); /* vertical center + move up 2px */
+  transform: translateY(-50%) translateY(-2px); /* hover effect + vertical center */
 }
+
 /* Floater Messenger Button */
 .floater-messenger {
   position: fixed;
