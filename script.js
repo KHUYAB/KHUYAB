@@ -10,69 +10,6 @@ if (toggle) {
   });
 }
 
-// ⌨️ Typing effect
-const text = "ull-Stack Developer· UI/UX Designer";
-const typingSpan = document.querySelector(".sub.role .typing");
-let i = 0;
-const typingSpeed = 100;
-const delayBetweenLoops = 1500;
-
-function typeWriter() {
-  if (!typingSpan) return;
-
-  if (i < text.length) {
-    typingSpan.textContent += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, typingSpeed);
-  } else {
-    setTimeout(() => {
-      typingSpan.textContent = "";
-      i = 0;
-      typeWriter();
-    }, delayBetweenLoops);
-  }
-}
-
-setTimeout(typeWriter, 500);
-
-// 🖼️ Infinite image scroll
-const imageList = document.getElementById("image-list");
-
-const imageData = [
-  "assets/animation/1.jpg",
-  "assets/animation/2.jpg",
-  "assets/animation/3.jpg",
-  "assets/animation/4.png",
-  "assets/animation/5.png",
-  "assets/animation/6.png",
-  "assets/animation/7.jpg",
-  "assets/animation/8.jpg"
-];
-
-function loadImages() {
-  if (!imageList) return;
-
-  imageData.forEach(src => {
-    const imgCard = document.createElement("div");
-    imgCard.className = "image-card";
-    imgCard.innerHTML = `<img src="${src}" alt="Gallery image">`;
-    imageList.appendChild(imgCard);
-  });
-}
-
-loadImages();
-loadImages();
-
-let scrollSpeed = 1;
-setInterval(() => {
-  if (!imageList) return;
-
-  imageList.scrollLeft += scrollSpeed;
-  if (imageList.scrollLeft >= imageList.scrollWidth / 2) {
-    imageList.scrollLeft = 0;
-  }
-}, 20);
-
 // 🎞️ Carousel (safe check)
 const track = document.querySelector(".carousel-track");
 const images = document.querySelectorAll(".carousel-track img");
@@ -123,4 +60,14 @@ if (track && images.length && dotsContainer) {
   updateCarousel();
   startAutoPlay();
 }
+
+document.querySelectorAll('.timeline-item').forEach(item => {
+  item.addEventListener('click', () => {
+    document
+      .querySelectorAll('.timeline-item')
+      .forEach(i => i.classList.remove('active'));
+
+    item.classList.add('active');
+  });
+});
 
