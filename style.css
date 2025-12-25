@@ -120,7 +120,6 @@ hr {
   border-top: 1px solid var(--border);
 }
 
-
 .sub {
  
   margin-top: 5px;
@@ -139,17 +138,12 @@ hr {
   font-size: 1.1rem;     /* bigger text */
 }
 
-@media (max-width: 768px) {
-  main {
-    grid-template-columns: 1fr; /* lahat stacked */
-    gap: 12px;
-  }
 
   aside {
     width: 100%;
     margin-top: 16px;
   }
-}
+
 
 
 
@@ -195,14 +189,6 @@ main {
   gap: 20px;
 }
 
-/* Remove gap in mobile view */
-@media (max-width: 900px) {
-  main {
-    grid-template-columns: 1fr; /* stack layout */
-    gap: 0;
-  }
-}
-
 .card {
   border-radius: 14px;
   padding: 20px;
@@ -228,7 +214,7 @@ main {
     justify-content: center; 
     
   }
-
+  
   .card {
     width: 100%;
     max-width: 355px;  /* keep cards readable on small screens */
@@ -266,22 +252,6 @@ main {
   }
 }
 
-/* Mobile landscape adjustments - PLACE THIS ABOVE MOBILE MAX-WIDTH RULES */
-@media (max-width: 900px) and (orientation: landscape) {
-    .card {
-        width: 90%; /* full available width sa screen */
-        max-width: none; /* remove restriction */
-        margin: 1em auto;
-        padding: 1.5em;
-        font-size: 1.05rem;
-    }
-
-    .about-section, .experience-item, .Certifications, .projects-list, .stack {
-        font-size: 1.05rem; /* consistent enlargement */
-    }
-}
-
-
 @media (max-width: 1000px) {
   header,
   .allcard,
@@ -292,6 +262,7 @@ main {
     justify-content: center; 
     
   }
+
 
   .card {
     width: 100%;
@@ -330,9 +301,8 @@ main {
   }
 }
 
-@media (max-width: 768px) {
-	
-	 header,
+@media (max-width: 1000px) {
+  header,
   .allcard,
   aside {
     display: flex;
@@ -391,15 +361,6 @@ main > section .card:nth-child(3) { animation-delay: 0.6s; }
 main > section .card:nth-child(4) { animation-delay: 0.8s; }
 
 
-
-.section-title h2 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 600;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 p.lead {
   color: var(--muted);
@@ -615,10 +576,37 @@ footer i {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* On smaller screens, stack section + aside */
+/* Desktop – default two columns */
+main {
+  display: grid;
+  grid-template-columns: 1fr 340px; /* main + aside */
+  gap: 20px;
+}
+
+/* Large tablets (1024px and below) */
+@media (max-width: 1024px) {
+  main {
+    grid-template-columns: 1fr; /* stack main + aside */
+  }
+}
+
+/* Tablets / smaller screens (768px and below) */
 @media (max-width: 768px) {
   main {
-    grid-template-columns: 1fr; /* single column */
+    grid-template-columns: 1fr; /* stacked */
+    gap: 16px; /* smaller gap */
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 5fr; /* stacked full width */
+    gap: 12px; /* tighter spacing */
+  }
+
+  .card {
+    max-width: 100%; /* make cards full width */
+    padding: 12px;
   }
 
   aside {
@@ -639,41 +627,14 @@ footer i {
   }
 
   h1 {
-    font-size: 26px;
+    font-size: 60px;
   }
 }
-
-@media (max-width: 768px) {
- 
-  
-  /* Decrease badge/chip size on mobile */
-  .badges .btn,
-  .chip {
-    padding: 4px 8px;  /* smaller padding */
-    font-size: 0.75rem; /* smaller text */
-  }
-
-}
-
-
-
-/* Responsive */
-@media (max-width: 768px) {
-  .avatar {
-    width: 108px !important;
-    height: 108px !important;
-    font-size: 22px !important;
-  }
 
   h1 {
     font-size: 1rem !important; /* smaller text */
   }
-}
 
-@media (max-width: 600px) {
-  header {
-    font-size: 0.75rem !important; /* smaller text */
-  }
   
   .sub.location {
     font-size: 0.6rem ;  /* smaller than default 0.9rem */
@@ -694,13 +655,6 @@ footer i {
     gap: 6px ;
   }
   
-  .badges a[href^="tel:"] {
-    display: none ;
-  }
-}
-
- 
-
 /* Carousel */
 .carousel {
   position: relative;
@@ -825,20 +779,6 @@ body.dark-mode footer {
   transform: translateY(-2px);
 }
 
-/* Mobile – sasama sa scroll */
-@media (max-width: 600px) {
-  #darkToggle {
-    position: relative !important; /* normal flow, sumasama sa scroll */
-    top: auto;
-    right: auto;
-    margin: 10px 0; /* puwesto sa loob ng content */
-    font-size: 0.75rem;
-    padding: 4px 8px;
-    z-index: 1; /* hindi kailangan mataas sa content */
-    display: inline-block;
-  }
-}
-
 
 /* Floater Messenger Button */
 .floater-messenger {
@@ -871,17 +811,6 @@ body.dark-mode .floater-messenger {
   color: #fff;
 }
 
-/* Mobile tweaks */
-@media (max-width: 600px) {
-  .floater-messenger {
-    width: 44px;
-    height: 44px;
-    font-size: 20px;
-    bottom: 14px;
-    right: 14px;
-  }
-}
-
 /* Horizontal Image Scroll */
 .image-list {
   display: flex;
@@ -906,18 +835,3 @@ body.dark-mode .floater-messenger {
   display: block;
 }
 
-
-@media (max-width: 1000px) {
-  .image-card {
-    flex: 0 1900px;  /* narrower */
-    height: 80px;
-  }
-}
-
-/* Mobile (<= 480px) */
-@media (max-width: 1000px) {
-  .image-card {
-    flex: 0 0 50px;  /* narrowest */
-    height: 70px;
-  }
-}
