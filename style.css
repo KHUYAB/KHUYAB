@@ -56,7 +56,7 @@ body {
 
 header {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   align-items: center;
   margin-bottom: 10px;
   animation: slideDown 1s ease;
@@ -557,13 +557,6 @@ footer i {
   .project {
     width: 100% !important;
   }
-}
-
-@media (max-width: 768px) {
-  .avatar {
-    width: 88px;
-    height: 88px;
-  }
 
   main {
     grid-template-columns: 1fr;
@@ -583,12 +576,6 @@ footer i {
   header {
     flex-direction: row;
     align-items: flex-start;
-  }
-
-  .avatar {
-    width: 88px;
-    height: 88px;
-    font-size: 22px;
   }
 
   .hero h1 {
