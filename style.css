@@ -914,6 +914,16 @@ Dark Mode Toggle Button - Desktop Default
   }
 }
 
+/* Projects URL color */
+.projects-list .project small {
+  color: #000; /* default black for light mode */
+}
+
+/* Dark mode */
+body.dark-mode .projects-list .project small {
+  color: #fff; /* white in dark mode */
+}
+
 
 .card-title {
   font-size: 1rem;
