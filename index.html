@@ -877,10 +877,169 @@ scrollRight.addEventListener("click", () => scrollSmooth(1));
     </footer>
   </div>
   
-  <!-- Floating Messenger Button -->
-<a href="https://www.facebook.com/messages/e2ee/t/2054380878719798" target="_blank" class="floater-messenger">
-  <i class="fa-brands fa-facebook-messenger"></i>
-</a>
+
+<!-- Floating AI Button -->
+<div id="ai-floater" class="ai-floater"><i class="fa-solid fa-robot"></i></div>
+
+<!-- Chat Modal -->
+<div id="ai-chat-box" class="ai-chat-box">
+  <div class="ai-header">
+    <span>AI Chat</span>
+    <button id="ai-close">&times;</button>
+  </div>
+  <div id="ai-messages" class="ai-messages"></div>
+  <div class="ai-input-container">
+    <input type="text" id="ai-input" placeholder="Type your question..." />
+    <button id="ai-send">Send</button>
+  </div>
+</div>
+
+<style>
+/* Floating button style */
+.ai-floater {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #4caf50;
+  color: #fff;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  font-size: 24px;
+  z-index: 1000;
+  transition: transform 0.2s;
+}
+.ai-floater:hover {
+  transform: scale(1.1);
+}
+
+/* Chat box style */
+.ai-chat-box {
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  width: 300px;
+  max-height: 400px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.ai-header {
+  background: #4caf50;
+  color: #fff;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ai-messages {
+  padding: 10px;
+  flex: 1;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.ai-input-container {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.ai-input-container input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  outline: none;
+}
+
+.ai-input-container button {
+  padding: 8px 12px;
+  border: none;
+  background: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+.ai-input-container button:hover {
+  background: #45a049;
+}
+</style>
+
+<script>
+const floater = document.getElementById('ai-floater');
+const chatBox = document.getElementById('ai-chat-box');
+const messages = document.getElementById('ai-messages');
+const input = document.getElementById('ai-input');
+const sendBtn = document.getElementById('ai-send');
+const closeBtn = document.getElementById('ai-close');
+
+floater.addEventListener('click', () => {
+  chatBox.style.display = chatBox.style.display === 'none' ? 'flex' : 'none';
+});
+closeBtn.addEventListener('click', () => { chatBox.style.display = 'none'; });
+
+sendBtn.addEventListener('click', async () => {
+  const userMsg = input.value.trim();
+  if (!userMsg) return;
+
+  messages.innerHTML += `<div><b>You:</b> ${userMsg}</div>`;
+  input.value = '';
+  messages.scrollTop = messages.scrollHeight;
+
+  const API_KEY = 'AIzaSyCYT5lOxkI917Hd2BcmgTMD__geqEgbYJg';
+
+  let aiReply = '';
+
+  try {
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateText?key=${API_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          input: { text: userMsg },
+          temperature: 0.7,
+          maxOutputTokens: 200,
+          candidateCount: 1
+        })
+      }
+    );
+
+    const data = await response.json();
+    console.log(data); // debug
+
+    // Try Gemini API response first
+    aiReply = data.candidates?.[0]?.content?.[0]?.text || data.outputText;
+  } catch (err) {
+    console.error('Gemini API error:', err);
+  }
+
+  // Fallback offline AI
+  if (!aiReply) {
+    const lower = userMsg.toLowerCase();
+    if (lower.includes('hi') || lower.includes('hello')) aiReply = 'Hello! How can I help you today?';
+    else if (lower.includes('how are you')) aiReply = 'I am fine, thank you!';
+    else if (lower.includes('bye')) aiReply = 'Goodbye! Have a nice day!';
+    else aiReply = "I'm not sure how to answer that, but I'm learning!";
+  }
+
+  messages.innerHTML += `<div><b>AI:</b> ${aiReply}</div>`;
+  messages.scrollTop = messages.scrollHeight;
+});
+
+// Allow pressing Enter key to send
+input.addEventListener('keypress', (e) => {
+  if(e.key === 'Enter') sendBtn.click();
+});
+</script>
+
 <script src="script.js"></script>
 </body>
 </html>
