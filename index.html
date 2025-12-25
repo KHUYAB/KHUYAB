@@ -363,36 +363,172 @@ body.dark-mode .Certifications:hover {
     width: 16px;
     text-align: center;
 }
-
 </style>
-		 
 </section>
 <aside>
 
- <!-- Hero Image Above Experience -->
-<article class="card hero-card">
+<style>
+/* Section Title */
+.section-title h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Timeline */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+/* Timeline Line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: #f0e8e8;
+  transition: background 0.3s;
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  padding: 0 45px 8px 22px; /* adjust bottom padding for spacing */
+  margin-bottom: 8px;       /* space between items */
+}
+
+/* Dot */
+.timeline-item .dot {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s, border 0.3s;
+}
+
+/* Active Dot */
+.timeline-item.active .dot {
+  background: #501fff;
+}
+
+/* Content */
+.timeline-item .content h4 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.timeline-item .content p {
+  margin: 2px 0 0;
+  font-size: 0.75rem;
+  color: #666;
+  transition: color 0.3s;
+}
+
+/* Year */
+.timeline-item .year {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.7rem;
+  color: #999;
+  transition: color 0.3s;
+}
+
+/* Dark Mode Styles */
+body.dark .timeline::before {
+  background: #fff;
+}
+
+body.dark .timeline-item .dot {
+  background: transparent;
+  border: 1px solid #fff;
+}
+
+body.dark .timeline-item.active .dot {
+  background: #fff;
+}
+
+body.dark .timeline-item .content p {
+  color: #ccc;
+}
+
+body.dark .timeline-item .year {
+  color: #aaa;
+}
+
+</style>
 
 <style>
-  .hero-card {
-    position: relative;
-    width: 100%;
-    height: 90px; /* adjust this for a nice card proportion */
-    border-radius: 12px; /* small rounding for a card look */
-    overflow: hidden;
-    margin-bottom: 1.5em;
-    background-image: url('assets/animation/download.jpg');
-    background-size: cover;
-    background-position: center;
-  }
+/* ===== HERO SLIDER AS MAIN CARD ===== */
+.hero-card {
+  position: relative;
+  width: 100%;
+  height: 60px; /* adjust as needed */
+  overflow: hidden;
+  border-radius: 12px;
+  margin-top: -10px;
+  margin-bottom: 0.8em;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Slides */
+.hero-card .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: slideFade 12s infinite;
+  transition: opacity 0.6s ease;
+}
+
+/* Slide animation delays */
+.hero-card .slide:nth-child(1) { animation-delay: 0s; }
+.hero-card .slide:nth-child(2) { animation-delay: 4s; }
+.hero-card .slide:nth-child(3) { animation-delay: 8s; }
+
+/* Fade Animation */
+@keyframes slideFade {
+  0% { opacity: 0; }
+  8% { opacity: 1; }
+  33% { opacity: 1; }
+  41% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Dark mode fix - keep photos visible */
+body.dark .hero-card {
+  filter: brightness(0.85);
+}
 </style>
-</article>
+
+<!-- ===== HERO SLIDES ===== -->
+<div class="hero-card">
+  <div class="slide" style="background-image: url('assets/project/1.png');"></div>
+  <div class="slide" style="background-image: url('assets/project/2.png');"></div>
+  <div class="slide" style="background-image: url('assets/project/3.jpg');"></div>
+</div>
+
 
 <article class="card">
   <div class="section-title">
     <h2><i class="fa-solid fa-briefcase"></i> Experience</h2>
   </div>
-
   <ul class="timeline">
+
     <li class="timeline-item active">
       <span class="dot"></span>
       <div class="content">
@@ -464,30 +600,51 @@ body.dark-mode .Certifications:hover {
       </div>
       <span class="year">2019</span>
     </li>
+
   </ul>
 </article>
 
 	
-<!-- Skills -->
+<!-- Tech Stack -->
 <div class="card">
   <div class="section-title">
     <h2><i class="fa-solid fa-laptop-code"></i> Tech Stack</h2>
   </div>
-  <div class="stack">
-    <span class="chip">HTML</span>
-    <span class="chip">CSS</span>
-    <span class="chip">JavaScript</span>
-    <span class="chip">PHP</span>
-    <span class="chip">MySQL</span>
-    <span class="chip">Figma</span>
-    <span class="chip">Problem-Solving</span>
-    <span class="chip">Debugging</span>
-    <span class="chip">Team Collaboration</span>
-    <span class="chip">Basic UI/UX</span>
-    <span class="chip">Photoshop</span>
-    <span class="chip">Graphic Designing</span>
+
+  <!-- Frontend -->
+  <div class="stack-group">
+    <h3 class="stack-title">Frontend</h3>
+    <div class="stack">
+      <span class="chip">HTML</span>
+      <span class="chip">CSS</span>
+      <span class="chip">JavaScript</span>
+      <span class="chip">Basic UI/UX</span>
+      <span class="chip">Figma</span>
+      <span class="chip">Photoshop</span>
+      <span class="chip">Graphic Designing</span>
+    </div>
+  </div>
+
+  <!-- Backend -->
+  <div class="stack-group">
+    <h3 class="stack-title">Backend</h3>
+    <div class="stack">
+      <span class="chip">PHP</span>
+      <span class="chip">Problem-Solving</span>
+      <span class="chip">Debugging</span>
+      <span class="chip">Team Collaboration</span>
+    </div>
+  </div>
+
+  <!-- Database -->
+  <div class="stack-group">
+    <h3 class="stack-title">Database</h3>
+    <div class="stack">
+      <span class="chip">MySQL</span>
+    </div>
   </div>
 </div>
+
 		
 <!-- Contact -->
 <div class="card">
@@ -542,19 +699,167 @@ body.dark-mode .Certifications:hover {
 </aside>
 </main>
 <hr/>
-<!-- Image Articles (Auto Infinite Scroll Loop) -->
+
 <article class="card" id="image-articles-section">
-  
-  <!-- Card Title with Icon -->
   <div class="card-title">
-    <i class="fas fa-image"></i> <!-- Example icon (Font Awesome) -->
+    <i class="fas fa-image"></i>
     Gallery
   </div>
 
-  <div id="image-list" class="image-list">
-    <!-- Images will load here -->
+  <div class="gallery-scroll-wrapper">
+
+    <button id="scrollLeft" class="scroll-btn left">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <div id="image-list" class="image-list">
+      <!-- Cards injected by JS -->
+    </div>
+
+    <button id="scrollRight" class="scroll-btn right">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
   </div>
+
 </article>
+
+ <style>
+.gallery-scroll-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.scroll-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: #fff;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.scroll-btn.left {
+  left: 5px; /* small padding from left edge */
+}
+
+.scroll-btn.right {
+  right: 5px; /* small padding from right edge */
+}
+
+/* Optional: hide buttons on very small screens if needed */
+@media (max-width: 350px) {
+  .scroll-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+}
+
+
+.scroll-btn.left {
+  position: absolute;
+  left: -25px;
+}
+
+.scroll-btn.right {
+  position: absolute;
+  right: -25px;
+}
+
+.image-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 15px 0;
+}
+
+.timeline-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.timeline-card img {
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid transparent;
+  transition: 0.3s ease;
+}
+
+
+/* Hover Zoom */
+.timeline-card:hover img {
+  transform: scale(1.05);
+}
+
+/* DARK MODE — white border card glow */
+body.dark-mode .timeline-card img {
+  border-color: #ffffff;
+}
+ </style>
+ <script>
+ const imageList = document.getElementById("image-list");
+
+const imageData = [
+  { src: "assets/animation/1.jpg" },
+  { src: "assets/animation/2.jpg" },
+  { src: "assets/animation/3.jpg" },
+  { src: "assets/animation/4.jpg" },
+  { src: "assets/animation/5.jpg" },
+  { src: "assets/animation/6.jpg" },
+  { src: "assets/animation/7.jpg" },
+  { src: "assets/animation/8.jpg" },
+  { src: "assets/animation/9.jpg" },
+  { src: "assets/animation/10.jpg" },
+  { src: "assets/animation/11.jpg" },
+  { src: "assets/animation/14.jpg" },
+  { src: "assets/animation/15.jpg" }
+];
+
+// Inject images without label
+function loadImages() {
+  imageData.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "timeline-card";
+    card.innerHTML = `<img src="${item.src}">`; // no <span> label
+    imageList.appendChild(card);
+  });
+}
+
+loadImages();
+
+const scrollLeft = document.getElementById("scrollLeft");
+const scrollRight = document.getElementById("scrollRight");
+
+function scrollSmooth(direction) {
+  const step = 260;
+  imageList.scrollTo({
+    left: imageList.scrollLeft + (step * direction),
+    behavior: "smooth"
+  });
+}
+
+scrollLeft.addEventListener("click", () => scrollSmooth(-1));
+scrollRight.addEventListener("click", () => scrollSmooth(1));
+
+ </script>
 
 </article>  
     <!-- Footer -->
