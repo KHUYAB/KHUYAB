@@ -1,4 +1,3 @@
-
 :root {
   --bg: #ffffff;
   --card: #f5f5f5;
@@ -6,19 +5,19 @@
   --accent: #000000;
   --gradient: linear-gradient(90deg, #000000, #333333);
   --maxw: 1100px;
-  --border: rgba(0,0,0,0.08);
+  --border: rgba(0, 0, 0, 0.08);
   --btn-bg: transparent;
-  --btn-hover-bg: #000;      /* light mode hover background */
-  --btn-color: #000;          /* light mode text */
-  --btn-hover-color: #fff;    /* light mode hover text */
-  --btn-border: rgba(0,0,0,0.2); /* light mode border */
-
+  --btn-hover-bg: #000;
+  --btn-color: #000;
+  --btn-hover-color: #fff;
+  --btn-border: rgba(0, 0, 0, 0.2);
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
+
 .social-btn {
-  margin-right: 8px; /* spacing between buttons */
-  margin-bottom: 6px; /* spacing for wrapping on small screens */
-  display: inline-block; /* keep buttons inline */
+  margin-right: 8px;
+  margin-bottom: 6px;
+  display: inline-block;
 }
 
 .tech-description {
@@ -32,7 +31,6 @@
   font-weight: 600;
   margin-bottom: 6px;
 }
-
 
 * {
   box-sizing: border-box;
@@ -56,14 +54,13 @@ body {
   animation: fadeIn 1.2s ease;
 }
 
-/* Header */
 header {
   display: flex;
   gap: 20px;
   align-items: center;
   margin-bottom: 10px;
   animation: slideDown 1s ease;
-  position: relative; /* so button positions relative to container */
+  position: relative;
 }
 
 .avatar {
@@ -73,26 +70,19 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* ensures image stays inside rounded corners */
+  overflow: hidden;
   animation: popIn 1s forwards;
 }
 
 .avatar img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* fills the avatar area while keeping aspect ratio */
-  transition: opacity 0.3s ease; /* smooth fade effect */
+  object-fit: cover;
+  transition: opacity 0.3s ease;
 }
 
 .avatar:hover img {
-  content: url("assets/animation/4.jpg"); /* swap to profile1.png on hover */
-}
-
-@media (max-width: 768px) {
-  .avatar {
-    width: 88px;
-    height: 88px;
-  }
+  content: url("assets/animation/4.jpg");
 }
 
 .hero {
@@ -100,17 +90,16 @@ header {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 1rem !important;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
-/* Make the h1 a flex container to align text and image */
 .hero h1 {
-  display: inline-flex; /* or flex if you want it full width */
-  align-items: center;  /* vertically centers the image with text */
-  gap: 8px;             /* spacing between text and image */
-  flex-wrap: wrap;      /* allow text to wrap on small screens */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 hr {
@@ -121,36 +110,29 @@ hr {
 }
 
 .sub {
- 
   margin-top: 5px;
-
 }
 
 .sub.location {
-  color: var(--muted);   /* muted color */
-  font-size: 0.9rem;     /* smaller text (adjust as needed) */
+  color: var(--muted);
+  font-size: 0.6rem;
 }
 
 .sub.role {
-	margin-top: 20px;
-  
-  font-weight: 400;      
-  font-size: 1.1rem;     /* bigger text */
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 0.7rem;
 }
 
-
-  aside {
-    width: 100%;
-    margin-top: 16px;
-  }
-
-
-
+aside {
+  width: 100%;
+  margin-top: 16px;
+}
 
 .badges {
   margin-top: 16px;
   display: flex;
-  gap: 12px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
@@ -182,10 +164,9 @@ hr {
   opacity: 0.9;
 }
 
-/* Main content */
 main {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px; /* main grows, aside fixed */
+  grid-template-columns: minmax(0, 1fr) 340px;
   gap: 20px;
 }
 
@@ -196,171 +177,28 @@ main {
   border: 1px solid rgba(0, 0, 0, 0.10);
   animation: fadeUp 1s ease;
   animation-fill-mode: both;
-
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-@media (max-width: 1000px) {
-  header,
-  .allcard,
-  aside {
-    display: flex;
-    flex-direction: column;
-    align-items: center;   /* center horizontally */
-    justify-content: center; 
-    
-  }
-  
-  .card {
-    width: 100%;
-    max-width: 355px;  /* keep cards readable on small screens */
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-   .hero h1 {
-    font-size: 0.9rem !important;
-    line-height: 1.4 !important;
-  
-  }
-
-  .badges {
-
-    gap: 6px !important;
-  }
-
-  .badges a,
-  .badges button {
-    font-size: 0.75rem ;
-    padding: 6px 10px ;
-  }
-  
-  .contact-item .btn {
-    font-size: 0.75rem !important;   /* smaller text */
-    padding: 6px 8px !important;     /* reduce button size */
-    word-break: break-word !important; /* wrap if too long */
-    text-align: center !important;   /* center text */
-  }
-
-  .contact-item .btn i {
-    font-size: 0.9rem !important;    /* smaller icon */
-    margin-right: 4px !important;    /* tighter spacing */
-  }
+main > section .card:nth-child(1) {
+  animation-delay: 0.2s;
 }
 
-@media (max-width: 1000px) {
-  header,
-  .allcard,
-  aside {
-    display: flex;
-    flex-direction: column;
-    align-items: center;   /* center horizontally */
-    justify-content: center; 
-    
-  }
-
-
-  .card {
-    width: 100%;
-    max-width: 800px;  /* keep cards readable on small screens */
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-   .hero h1 {
-    font-size: 0.9rem !important;
-    line-height: 1.4 !important;
-  
-  }
-
-  .badges {
-
-    gap: 6px ;
-  }
-
-  .badges a,
-  .badges button {
-    font-size: 0.75rem ;
-    padding: 6px 10px ;
-  }
-  
-  .contact-item .btn {
-    font-size: 0.75rem !important;   /* smaller text */
-    padding: 6px 8px !important;     /* reduce button size */
-    word-break: break-word !important; /* wrap if too long */
-    text-align: center !important;   /* center text */
-  }
-
-  .contact-item .btn i {
-    font-size: 0.9rem !important;    /* smaller icon */
-    margin-right: 4px !important;    /* tighter spacing */
-  }
+main > section .card:nth-child(2) {
+  animation-delay: 0.4s;
 }
 
-@media (max-width: 1000px) {
-  header,
-  .allcard,
-  aside {
-    display: flex;
-    flex-direction: column;
-    align-items: center;   /* center horizontally */
-    justify-content: center; 
-    
-  }
-
-  .card {
-    width: 100%;
-    max-width: 300px;  /* keep cards readable on small screens */
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .hero h1 {
-    font-size: 0.6rem !important;
-    line-height: 1.3 !important;
-	display: inline-flex;          /* keep text + icon on one line */
-         /* vertically center */
-  gap: 3px;    
-  }
-  
-  .hero h1 img {
-    width: 13px !important;
-    height: 13px !important;
-  }
-
-  .sub.location,
-  .sub.role {
-    font-size: 0.55rem !important;
-    line-height: 1.2 !important;
-  }
-
-  .badges {
-    
-    gap: 4px !important;
-  }
-
-  .badges a,
-  .badges button {
-    font-size: 0.4rem !important;
-    padding: 4px 8px !important;
-  }
-  
-  .project {
-     width: 100% !important;       /* make sure it fits container */
-  }
+main > section .card:nth-child(3) {
+  animation-delay: 0.6s;
 }
 
-
-main > section .card:nth-child(1) { animation-delay: 0.2s; }
-main > section .card:nth-child(2) { animation-delay: 0.4s; }
-main > section .card:nth-child(3) { animation-delay: 0.6s; }
-main > section .card:nth-child(4) { animation-delay: 0.8s; }
-
-
+main > section .card:nth-child(4) {
+  animation-delay: 0.8s;
+}
 
 p.lead {
   color: var(--muted);
@@ -373,7 +211,7 @@ a.btn {
   font-size: 15px;
   color: var(--muted);
 }
-/* Stack / Chips */
+
 .stack {
   display: flex;
   flex-wrap: wrap;
@@ -381,12 +219,10 @@ a.btn {
   margin-top: 8px;
 }
 
-/* Group spacing */
 .stack-group {
   margin-top: 16px;
 }
 
-/* Stack titles */
 .stack-title {
   font-size: 16px;
   font-weight: 600;
@@ -394,7 +230,6 @@ a.btn {
   transition: color 0.3s;
 }
 
-/* Chips */
 .chip {
   background: rgba(0, 0, 0, 0.05);
   padding: 6px 12px;
@@ -407,27 +242,11 @@ a.btn {
   gap: 6px;
 }
 
-body.dark .section-title h2 i {
-  color: #fff;
-}
-
 .chip:hover {
   background: var(--gradient);
   color: #ffffff;
 }
 
-/* Dark Mode Styles */
-body.dark .stack-title {
-  color: #ffffff;
-}
-
-body.dark .chip {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-
-/* Experience */
 .experience-item {
   margin-top: 14px;
   padding-top: 14px;
@@ -451,88 +270,50 @@ body.dark .chip {
   color: var(--muted);
 }
 
-/* ================================
-Projects – Clean Bootstrap Style
-================================ */
-
-
 .projects-list {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap: 12px;
-margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
 }
 
-
-/* Card */
 .project {
-background: #ffffff;
-border-radius: 8px;
-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-
-/* Make whole card clickable */
 .project a {
-display: block;
-padding: 12px 14px;
-text-decoration: none;
+  display: block;
+  padding: 12px 14px;
+  text-decoration: none;
 }
 
-
-/* Hover */
 .project:hover {
-transform: translateY(-2px);
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-
-/* Title */
 .project strong {
-display: block;
-font-size: 0.95rem;
-font-weight: 600;
-color: #111827;
-margin-bottom: 4px;
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
 }
 
-
-/* Description */
 .project .meta {
-font-size: 0.85rem;
-color: #6b7280;
-line-height: 1.5;
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.5;
 }
 
-
-/* ================================
-Dark Mode
-================================ */
-
-
-body.dark-mode .project {
-background: #111827;
-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-}
-
-
-body.dark-mode .project strong {
-color: #ffffff;
-}
-
-
-body.dark-mode .project .meta {
-color: #9ca3af;
-}
-
-/* Aside */
 aside .contact-item {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-top: 10px;
-  
 }
 
 aside ul {
@@ -542,10 +323,10 @@ aside ul {
   font-size: 14px;
   line-height: 1.6;
 }
+
 aside li {
   margin-bottom: 6px;
 }
-
 
 .card .contact-item a,
 .card .btn {
@@ -554,11 +335,9 @@ aside li {
 
 .contact-item a[href^="tel"] {
   margin-top: 8px;
-  display: inline-block; /* ensures margin works properly */
+  display: inline-block;
 }
 
-
-/* Footer */
 footer {
   margin-top: 40px;
   color: var(--muted);
@@ -568,140 +347,56 @@ footer {
   line-height: 1.7;
 }
 
-/* ICON FIXES */
-.card i, 
-.chip i, 
-aside i, 
+.card i,
+.chip i,
+aside i,
 footer i {
-  font-size: 15px;         
-  width: 18px;             
-  text-align: center;      
-  flex-shrink: 0;          
-  line-height: 1;          
-  vertical-align: middle;  
+  font-size: 15px;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+  line-height: 1;
+  vertical-align: middle;
   color: grey;
 }
 
-/* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes popIn {
-  to { transform: scale(1); }
+  to {
+    transform: scale(1);
+  }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Desktop – default two columns */
-main {
-  display: grid;
-  grid-template-columns: 1fr 340px; /* main + aside */
-  gap: 20px;
-}
-
-/* Large tablets (1024px and below) */
-@media (max-width: 1024px) {
-  main {
-    grid-template-columns: 1fr; /* stack main + aside */
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Tablets / smaller screens (768px and below) */
-@media (max-width: 768px) {
-  main {
-    grid-template-columns: 1fr; /* stacked */
-    gap: 16px; /* smaller gap */
-  }
-}
-
-@media (max-width: 768px) {
-  main {
-    grid-template-columns: 7fr; /* stacked full width */
-    gap: 12px; /* tighter spacing */
-  }
-
-  .card {
-    max-width: 200%; /* make cards full width */
-    padding: 12px;
-  }
-
-  aside {
-    width: 100%; /* make it full width */
-    display: block; /* reset in case flex messed it up */
-  
-  }
-
-  @media (max-width: 768px) {
-  .container {
-    padding: 10px; /* bawasan padding sa gilid */
-    margin-top: 20px; /* optional, konting spacing sa taas */
-  }
-
-  .card {
-    margin-left: 0;   /* tanggalin auto margins */
-    margin-right: 0;  /* tanggalin auto margins */
-    width: 100%;      /* siguraduhin full width */
-    max-width: 100%;  /* walang limit */
-    padding: 12px;    /* kaunting padding sa loob */
-    border-radius: 10px; /* pwede bawasan kung gusto mo mas dikit sa gilid */
-  }
-
-  aside {
-    width: 100%; /* full width for sidebar content */
-  }
-}
-
-  header {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .avatar {
-    width: 88px;
-    height: 88px;
-    font-size: 22px;
-  }
-
-  h1 {
-    font-size: 60px;
-  }
-}
-
-  h1 {
-    font-size: 1rem !important; /* smaller text */
-  }
-
-  
-  .sub.location {
-    font-size: 0.6rem ;  /* smaller than default 0.9rem */
-  }
-
-  .sub.role {
-    font-size: 0.7rem;   /* smaller than default 1.1rem */
-  }
-
-  /* Decrease badge/chip size on mobile */
-  .badges .btn,
-  .chip {
-    padding: 4px 8px ;  /* smaller padding */
-    font-size: 0.50rem ; /* smaller text */
-  }
-  
-  .badges {
-    gap: 6px ;
-  }
-  
-/* Carousel */
 .carousel {
   position: relative;
   overflow: hidden;
@@ -713,7 +408,7 @@ main {
   display: flex;
   transition: transform 0.6s ease-in-out;
   gap: 8px;
-    justify-content: center;
+  justify-content: center;
 }
 
 .carousel-track img {
@@ -723,18 +418,13 @@ main {
   flex-shrink: 0;
   object-fit: cover;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  transform: scale(1) translateY(0); /* base state */
- 
+  transform: scale(1) translateY(0);
 }
 
 .carousel-track img:hover {
-  transform: scale(1.05) translateY(-6px); /* zoom + lift up */
-
+  transform: scale(1.05) translateY(-6px);
 }
 
-
-
-/* Dots */
 .carousel-dots {
   display: flex;
   justify-content: center;
@@ -747,7 +437,7 @@ main {
   height: 10px;
   border-radius: 50%;
   border: none;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
 }
@@ -757,26 +447,246 @@ main {
   transform: scale(1.2);
 }
 
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+}
 
+.card-title i {
+  font-size: 1.2rem;
+  color: var(--accent);
+}
 
+.floater-messenger {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0084ff;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-size: 24px;
+  z-index: 9999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
+.floater-messenger:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
 
-/* ================================
-Dark Mode
-================================ */
+#darkToggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+  z-index: 10;
+  white-space: nowrap;
+  border: 1px solid var(--btn-border);
+  border-radius: 10px;
+  padding: 6px 12px;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#darkToggle:hover {
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-color);
+  transform: translateY(-50%) translateY(-2px);
+}
+
+.projects-list .project small {
+  color: #000;
+}
+
+@media (max-width: 1000px) {
+  .allcard,
+  aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero h1 {
+    font-size: 0.6rem !important;
+    line-height: 1.3 !important;
+    display: inline-flex;
+    gap: 3px;
+  }
+
+  .hero h1 img {
+    width: 13px !important;
+    height: 13px !important;
+  }
+
+  .sub.location,
+  .sub.role {
+    font-size: 0.55rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .badges {
+    gap: 4px !important;
+  }
+
+  .badges a,
+  .badges button {
+    font-size: 0.4rem !important;
+    padding: 4px 8px !important;
+  }
+
+  .project {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .avatar {
+    width: 88px;
+    height: 88px;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    max-width: 200%;
+    padding: 12px;
+  }
+
+  aside {
+    width: 100%;
+    display: block;
+  }
+
+  header {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .avatar {
+    width: 88px;
+    height: 88px;
+    font-size: 22px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .container {
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+  .card {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  aside {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
+    gap: 0 !important;
+  }
+
+  #darkToggle {
+    position: absolute;
+    top: 30%;
+    right: 16px;
+    transform: translateY(-50%);
+    margin: 0;
+    z-index: 10;
+    white-space: nowrap;
+    border: 1px solid var(--btn-border);
+    border-radius: 10px;
+    padding: 6px 12px;
+    background: var(--btn-bg);
+    color: var(--btn-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  #darkToggle:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-color);
+  }
+
+  .sub.location,
+  .sub.role {
+    font-size: 0.85rem !important;
+    line-height: 1.2 !important;
+    margin-top: 0 !important;
+  }
+
+  .badges {
+    gap: 4px !important;
+  }
+
+  #darkToggle {
+    top: 0;
+    right: 0;
+  }
+
+  #darkToggle i {
+    font-size: 0.8rem;
+  }
+
+  .badges .btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  .badges .btn i {
+    margin-right: 6px;
+  }
+}
+
 body.dark-mode {
   --bg: #0d0d0d;
   --card: #1a1a1a;
   --muted: #aaaaaa;
   --accent: #ffffff;
   --gradient: linear-gradient(90deg, #ffffff, #666666);
-  --border: rgba(255,255,255,0.15);
+  --border: rgba(255, 255, 255, 0.15);
   --btn-bg: transparent;
-  --btn-hover-bg: #fff;      
-  --btn-color: #fff;          
-  --btn-hover-color: #000;    
-  --btn-border: rgba(255,255,255,0.2);
-  
+  --btn-hover-bg: #fff;
+  --btn-color: #fff;
+  --btn-hover-color: #000;
+  --btn-border: rgba(255, 255, 255, 0.2);
   background: var(--bg);
   color: #ffffff;
 }
@@ -809,164 +719,32 @@ body.dark-mode .floater-messenger {
   color: #fff;
 }
 
-/* ================================
-Mobile / Small Screens Adjustments
-================================ */
-@media (max-width: 480px) {
-  /* Header text - name and verified tick */
-  .hero h1 {
-    font-size: 1.5rem !important; /* pataasin ang text size */
-    line-height: 1.2 !important;  
-    gap: 0 !important;            /* walang spacing sa pagitan ng text at icon */
-  }
-
-  @media (max-width: 480px) {
-  .hero h1 img {
-    margin-left: 4px;   /* mas maliit na space sa mobile */
-    width: 20px;         /* optional, mas maliit na icon sa mobile */
-    height: 20px;
-  }
+body.dark-mode .project {
+  background: #111827;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-#darkToggle {
-  position: absolute;
-  top: 30%; /* pataasin mula sa top ng header */
-  right: 16px;
-  transform: translateY(-50%); /* optional, para naka-adjust pa rin */
-  margin: 0;
-  z-index: 10;
-  white-space: nowrap;
-  border: 1px solid var(--btn-border);
-  border-radius: 10px;
-  padding: 6px 12px;
-  background: var(--btn-bg);
-  color: var(--btn-color);
-  cursor: pointer;
-  transition: all 0.3s ease;
+body.dark-mode .project strong {
+  color: #ffffff;
 }
 
-#darkToggle:hover {
-  background-color: var(--btn-hover-bg);
-  color: var(--btn-hover-color);
+body.dark-mode .project .meta {
+  color: #9ca3af;
 }
 
-  /* Sub info - location and role */
-  .sub.location,
-  .sub.role {
-    font-size: 0.85rem !important; 
-    line-height: 1.2 !important;   
-    margin-top: 0 !important;      
-  }
-
-  /* Badges/buttons spacing */
-  .badges {
-    gap: 4px !important; 
-  }
-
-  /* Dark toggle button adjustments */
-  #darkToggle {
-    padding: 4px 8px;         /* mas maliit na button */
-    font-size: 0.65rem;       /* mas maliit na text */
-    top: 5px;                 
-    right: 5px;
-    border-radius: 8px;       
-  }
-
-  #darkToggle i {
-    font-size: 0.8rem;        /* icon mas maliit */
-  }
-}
-
-/* ================================
-Dark Mode Toggle Button - Desktop Default
-================================ */
-#darkToggle {
-  position: absolute;  
-  top: 0;
-  right: 0;
-  margin: 5px;
-  z-index: 10;
-  white-space: nowrap;
-  border: 1px solid var(--btn-border);
-  border-radius: 10px;
-  padding: 6px 12px;
-  background: var(--btn-bg);
-  color: var(--btn-color);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-#darkToggle:hover {
-  background-color: var(--btn-hover-bg);
-  color: var(--btn-hover-color);
-  transform: translateY(-50%) translateY(-2px); /* hover effect + vertical center */
-}
-
-@media (max-width: 480px) {
-  /* Palakihin ang badges/buttons sa mobile */
-  .badges .btn {
-    padding: 10px 16px;   /* mas malaking button */
-    font-size: 0.85rem;   /* mas malaking text */
-  }
-
-  .badges .btn i {
-    margin-right: 6px;    /* konting space sa icon at text */
-  }
-}
-
-/* Projects URL color */
-.projects-list .project small {
-  color: #000; /* default black for light mode */
-}
-
-/* Dark mode */
 body.dark-mode .projects-list .project small {
-  color: #fff; /* white in dark mode */
-}
-
-
-.card-title {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--accent);
-}
-
-.card-title i {
-  font-size: 1.2rem; /* icon size */
-  color: var(--accent);
-}
-
-/* Floater Messenger Button */
-.floater-messenger {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #0084ff; /* Messenger blue */
   color: #fff;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  text-decoration: none;
-  font-size: 24px;
-  z-index: 9999;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.floater-messenger:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+body.dark-mode .stack-title {
+  color: #ffffff;
 }
 
-/* Dark mode adjustment */
-body.dark-mode .floater-messenger {
-  background-color: #00a2ff;
+body.dark-mode .chip {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark .section-title h2 i {
   color: #fff;
 }
