@@ -678,7 +678,7 @@ body.dark-mode {
   --card: #1a1a1a;
   --muted: #aaaaaa;
   --accent: #ffffff;
-  --gradient: linear-gradient(90deg, #ffffff, #666666);
+  --gradient: linear-gradient(90deg, #4f46e5, #9333ea); /* blue → violet */
   --border: rgba(255, 255, 255, 0.15);
   --btn-bg: transparent;
   --btn-hover-bg: #fff;
@@ -696,8 +696,9 @@ body.dark-mode .btn {
 
 body.dark-mode .btn.primary {
   background: var(--gradient);
-  color: #000000;
+  color: #ffffff; /* make text white */
 }
+
 
 body.dark-mode .chip {
   background: rgba(255, 255, 255, 0.1);
