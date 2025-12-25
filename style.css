@@ -63,10 +63,12 @@ header {
   position: relative;
 }
 
+
+/* Base style (mobile first) */
 .avatar {
-  width: 150px;
-  height: auto; /* adjust height automatically */
-  aspect-ratio: 1 / 1.6; /* match original ratio ng 150x240px */
+  width: 160px;
+  height: auto;
+  aspect-ratio: 1 / 1.6;
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -78,14 +80,20 @@ header {
 .avatar img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* cover para full sa container, hindi distorted */
-  image-rendering: auto; /* make sure smooth rendering */
+  object-fit: cover;
+  image-rendering: auto;
   transition: opacity 0.3s ease;
 }
 
-
 .avatar:hover img {
   content: url("assets/animation/4.jpg");
+}
+
+/* Desktop specific style */
+@media (min-width: 1024px) { /* adjust breakpoint kung kailangan */
+  .avatar {
+    height: 150px; /* liitan height sa desktop */
+  }
 }
 
 .hero {
