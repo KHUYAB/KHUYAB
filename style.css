@@ -876,6 +876,34 @@ Dark Mode Toggle Button - Desktop Default
   transform: translateY(-50%) translateY(-2px); /* hover effect + vertical center */
 }
 
+@media (max-width: 480px) {
+  /* Palakihin ang badges/buttons sa mobile */
+  .badges .btn {
+    padding: 10px 16px;   /* mas malaking button */
+    font-size: 0.85rem;   /* mas malaking text */
+  }
+
+  .badges .btn i {
+    margin-right: 6px;    /* konting space sa icon at text */
+  }
+}
+
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+}
+
+.card-title i {
+  font-size: 1.2rem; /* icon size */
+  color: var(--accent);
+}
+
 /* Floater Messenger Button */
 .floater-messenger {
   position: fixed;
