@@ -891,3 +891,29 @@ body.dark-mode .carousel-dots button.active {
 body.dark-mode hr {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+
+
+
+/* Light Mode – Gradient background + white text */
+.btn.calendar-btn {
+  background: linear-gradient(90deg, #4f46e5, #9333ea); /* blue → violet */
+  color: #ffffff; /* white text */
+  border: 0;
+}
+
+.btn.calendar-btn:hover {
+  opacity: 0.9;
+}
+
+/* Dark Mode – Plain white background + black text */
+body.dark-mode .btn.calendar-btn {
+  background: #ffffff;
+  color: #000000;
+  border: 0;
+}
+
+body.dark-mode .btn.calendar-btn:hover {
+  opacity: 0.9;
+}
+
