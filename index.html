@@ -121,7 +121,6 @@
       <i class="fa-solid fa-laptop-code"></i>
       Recent Projects
     </h2>
-
     <a href="/project.html" class="projects-view-all">
       <i class="fa-solid fa-eye"></i>
       <span>View All</span>
@@ -209,76 +208,105 @@
       <small>pikitmotorcyclepermit.com</small>
       </a>
     </div>
-
   </div>
 </article>
 
 
-<article class="card">
-    <div class="section-title">
-        <h2><i class="fa-solid fa-graduation-cap"></i> Recent Certifications</h2>
-    </div>
-    <div class="Certifications-item">
-        <div class="Certifications-list">
+<article class="card certifications-card">
+  <div class="section-title">
+    <h2><i class="fa-solid fa-graduation-cap"></i> Recent Certifications</h2>
+    <a href="/certificate.html" class="projects-view-all">
+      <i class="fa-solid fa-eye"></i>
+      <span>View All</span>
+    </a>
+  </div>
 
-            <div class="Certifications">
-                <div>
-                    <strong>Bachelor of Science in Information Technology</strong>
-                    <div class="meta">
-                      </i> June 2022 – Jul 2026 — CFCST Pikit External Campus
-                    </div>
-                </div>
-            </div>
+  <div class="Certifications-item">
+    <div class="Certifications-list">
 
-            <div class="Certifications">
-                <div>
-                    <strong>Web Development Bootcamp</strong>
-                    <div class="meta">
-                       </i> April 2024 — Coursera
-                    </div>
-                </div>
-            </div>
-
-             <div class="Certifications">
-                <div>
-                    <strong>CCNA Certificate</strong>
-                    <div class="meta">
-                       </i> September 2024 — Cisco Certified Network Associate – foundational knowledge in networking and IT infrastructure
-                    </div>
-                </div>
-            </div>
-
-             <div class="Certifications">
-                <div>
-                    <strong>Ethical Hacking Certificate</strong>
-                    <div class="meta">
-                      </i> March 2024 — Coursera
-                    </div>
-                </div>
-            </div>
-            
-            <div class="Certifications">
-                <div>
-                    <strong>ECertificate of Participation</strong>
-                    <div class="meta">
-                      </i> November 2024 — Recognizes participation in workshops and technical training related to a capstone project
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="Certifications">
-                <div>
-                    <strong>Python Programming Certification</strong>
-                    <div class="meta">
-                     </i> Mar 2024 — Hands-on experience in vulnerability assessment, penetration testing, and SQL injection techniques.
-                    </div>
-                </div>
-            </div>
+      <div class="Certifications">
+        <div>
+          <strong>Bachelor of Science in Information Technology</strong>
+          <div class="meta">
+            June 2022 – Jul 2026 — CFCST Pikit External Campus
+          </div>
         </div>
+      </div>
+
+      <div class="Certifications">
+        <div>
+          <strong>Web Development Bootcamp</strong>
+          <div class="meta">
+            April 2024 — Coursera
+          </div>
+        </div>
+      </div>
+
+      <div class="Certifications">
+        <div>
+          <strong>CCNA Certificate</strong>
+          <div class="meta">
+            September 2024 — Cisco Certified Network Associate – foundational knowledge in networking and IT infrastructure
+          </div>
+        </div>
+      </div>
+
+      <div class="Certifications">
+        <div>
+          <strong>Ethical Hacking Certificate</strong>
+          <div class="meta">
+            March 2024 — Coursera
+          </div>
+        </div>
+      </div>
+
+      <div class="Certifications">
+        <div>
+          <strong>ECertificate of Participation</strong>
+          <div class="meta">
+            November 2024 — Recognizes participation in workshops and technical training related to a capstone project
+          </div>
+        </div>
+      </div>
+      
     </div>
+  </div>
 </article>
+
 <style>
+
+  .certifications-card .section-title {
+  display: flex;
+  align-items: center;              /* vertical align */
+  justify-content: space-between;   /* left title, right button */
+  margin-bottom: 10px;              /* optional spacing */
+}
+
+.certifications-card .section-title h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;                         /* space between icon and text */
+  margin: 0;
+}
+
+.certifications-card .projects-view-all {
+  all: unset;                       /* reset inherited styles */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--accent);
+}
+
+.certifications-card .projects-view-all i {
+  font-size: 0.85rem;
+}
+
+.certifications-card .projects-view-all:hover {
+  opacity: 0.8;
+}
+
 /* =========================
 Recent Certifications
 ========================= */
@@ -602,8 +630,7 @@ body.dark .hero-card {
   </ul>
 </article>
 
-	
-<!-- Tech Stack -->
+	<!-- Tech Stack -->
 <div class="card">
   <div class="section-title">
     <h2><i class="fa-solid fa-laptop-code"></i> Tech Stack</h2>
@@ -617,9 +644,6 @@ body.dark .hero-card {
       <span class="chip">CSS</span>
       <span class="chip">JavaScript</span>
       <span class="chip">Basic UI/UX</span>
-      <span class="chip">Figma</span>
-      <span class="chip">Photoshop</span>
-      <span class="chip">Graphic Designing</span>
     </div>
   </div>
 
@@ -639,6 +663,16 @@ body.dark .hero-card {
     <h3 class="stack-title">Database</h3>
     <div class="stack">
       <span class="chip">MySQL</span>
+    </div>
+  </div>
+
+  <!-- Design Tools -->
+  <div class="stack-group">
+    <h3 class="stack-title">Design Tools</h3>
+    <div class="stack">
+      <span class="chip">Figma</span>
+      <span class="chip">Photoshop</span>
+      <span class="chip">Mockup</span>
     </div>
   </div>
 </div>
@@ -696,7 +730,7 @@ body.dark .hero-card {
 </div>
 </aside>
 </main>
-<hr/>
+
 
 <article class="card" id="image-articles-section">
   <div class="card-title">
