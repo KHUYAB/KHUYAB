@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Certifications</title>
+
+  <!-- Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #000;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    /* Header */
+    .page-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .back-link {
+    text-decoration: none;
+    font-size: 15px;
+    color: #000; /* Light mode (black) */
+    }
+
+    .dark-mode .back-link {
+    color: #fff; /* Dark mode (white) */
+    }
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    /* Grid Layout */
+    .Certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 16px;
+    }
+
+    .Cert-card {
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: #fff;
+      transition: 0.25s ease-in-out;
+      cursor: pointer;
+    }
+
+    .Cert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    }
+
+    .Cert-card strong {
+      font-size: 18px;
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .meta {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+      background: #121212;
+      color: #fff;
+    }
+
+    .dark-mode .Cert-card {
+      background: #1d1d1d;
+      border-color: #333;
+    }
+
+    .dark-mode .Cert-card strong {
+      color: #fff;
+    }
+
+    .dark-mode .meta {
+      color: #bbb;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      opacity: 0.7;
+      font-size: 14px;
+    }
+
+    footer strong {
+      font-weight: 600;
+    }
+
+    /* Dark Mode Toggle Button */
+    #darkToggleProject {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: #00000010;
+      backdrop-filter: blur(6px);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="page-header">
+      <a href="/" class="back-link">← Back to Home</a>
+      <div class="page-title">All Certifications</div>
+    </div>
+
+ <div class="Certifications-grid">
+
+  <div class="Cert-card">
+    <strong>Bachelor of Science in Information Technology</strong>
+    <div class="meta">
+      June 2022 – Jul 2026 — CFCST Pikit External Campus
+    </div>
+  </div>
+
+  <div class="Cert-card">
+    <strong>Web Development Bootcamp</strong>
+    <div class="meta">
+      April 2024 — Coursera
+    </div>
+  </div>
+
+  <div class="Cert-card">
+    <strong>CCNA Certificate</strong>
+    <div class="meta">
+      September 2024 — Cisco Certified Network Associate – foundational knowledge in networking and IT infrastructure
+    </div>
+  </div>
+
+  <div class="Cert-card">
+    <strong>Ethical Hacking Certificate</strong>
+    <div class="meta">
+      March 2024 — Coursera
+    </div>
+  </div>
+
+  <div class="Cert-card">
+    <strong>ECertificate of Participation</strong>
+    <div class="meta">
+      November 2024 — Recognizes participation in workshops and technical training related to a capstone project
+    </div>
+  </div>
+
+  <div class="Cert-card">
+    <strong>Python Programming Certification</strong>
+    <div class="meta">
+      Mar 2024 — Hands-on experience in vulnerability assessment, penetration testing, and SQL injection techniques.
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+  <footer>
+    Designed by: <strong>Norhan Kuyab</strong><br>
+    © 2025 Kuyab Dev – All Rights Reserved.
+  </footer>
+
+  <script>
+    // Dark Mode Local Storage
+    const isDark = localStorage.getItem("dark-mode") === "true";
+    if (isDark) document.body.classList.add("dark-mode");
+
+    const toggleBtn = document.createElement("button");
+    toggleBtn.id = "darkToggleProject";
+    toggleBtn.innerHTML = isDark ? "" : "";
+    document.body.appendChild(toggleBtn);
+
+    toggleBtn.addEventListener("click", () => {
+      const dark = document.body.classList.toggle("dark-mode");
+      toggleBtn.innerHTML = dark ? "" : "";
+      localStorage.setItem("dark-mode", dark);
+    });
+  </script>
+
+</body>
+</html>
