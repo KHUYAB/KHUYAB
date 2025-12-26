@@ -127,6 +127,22 @@
       backdrop-filter: blur(6px);
     }
 
+    /* Page load animation */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  animation: fadeSlideIn 0.8s ease forwards;
+}
+
   </style>
 </head>
 <body>
