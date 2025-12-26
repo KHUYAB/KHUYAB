@@ -1,12 +1,27 @@
-
 const toggle = document.getElementById("darkToggle");
 
-toggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
+// Function to apply mode
+function applyMode(isDark) {
+  if(isDark) {
+    document.body.classList.add("dark-mode");
+    toggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+  } else {
+    document.body.classList.remove("dark-mode");
+    toggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+  }
+}
 
-  toggle.innerHTML = document.body.classList.contains("dark-mode")
-    ? '<i class="fa-solid fa-moon"></i>'
-    : '<i class="fa-solid fa-sun"></i>';
+// Check localStorage on page load
+const darkModeStored = localStorage.getItem("dark-mode") === "true";
+applyMode(darkModeStored);
+
+// Toggle button click
+toggle.addEventListener("click", () => {
+  const isDark = !document.body.classList.contains("dark-mode");
+  applyMode(isDark);
+
+  // Save preference to localStorage
+  localStorage.setItem("dark-mode", isDark);
 });
 
 
