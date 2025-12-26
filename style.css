@@ -752,3 +752,41 @@ body.dark-mode .chip {
 body.dark .section-title h2 i {
   color: #fff;
 }
+
+
+
+/* ===== Projects header only ===== */
+.projects-card .section-title {
+  display: flex;
+  align-items: center;              /* vertical align */
+  justify-content: space-between;   /* left title, right button */
+}
+
+/* Title */
+.projects-card .section-title h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+/* View All button (NO conflict) */
+.projects-card .projects-view-all {
+  all: unset;                       /* reset ALL inherited styles */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.75;
+}
+
+.projects-card .projects-view-all i {
+  font-size: 0.85rem;
+}
+
+.projects-card .projects-view-all:hover {
+  opacity: 1;
+}
+
