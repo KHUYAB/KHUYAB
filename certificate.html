@@ -143,6 +143,33 @@ body {
   animation: fadeSlideIn 0.8s ease forwards;
 }
 
+/* Global box-sizing & prevent horizontal scroll */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  animation: fadeSlideIn 0.8s ease forwards;
+}
+
+/* Container adjustments for mobile */
+@media (max-width: 370px) {
+  .container {
+    padding: 15px 12px; /* smaller padding */
+  }
+
+  .page-title {
+    font-size: 1.3rem;
+  }
+
+  .Certifications-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* smaller min width for mobile */
+  }
+}
+
+
+
   </style>
 </head>
 <body>
