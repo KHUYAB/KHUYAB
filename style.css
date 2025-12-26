@@ -754,7 +754,6 @@ body.dark .section-title h2 i {
 }
 
 
-
 /* ===== Projects header only ===== */
 .projects-card .section-title {
   display: flex;
@@ -790,3 +789,105 @@ body.dark .section-title h2 i {
   opacity: 1;
 }
 
+
+
+/* Dark Mode Overrides */
+body.dark-mode {
+  --bg: #0d0d0d;
+  --card: #1a1a1a;
+  --muted: #aaaaaa;
+  --accent: #ffffff;
+  --gradient: linear-gradient(90deg, #4f46e5, #9333ea);
+  --border: rgba(255, 255, 255, 0.15);
+  --btn-bg: transparent;
+  --btn-hover-bg: #fff;
+  --btn-color: #fff;
+  --btn-hover-color: #000;
+  --btn-border: rgba(255, 255, 255, 0.2);
+  background: var(--bg);
+  color: #ffffff;
+}
+
+/* General text & links */
+body.dark-mode,
+body.dark-mode p,
+body.dark-mode .meta,
+body.dark-mode li,
+body.dark-mode .sub,
+body.dark-mode .tech-description {
+  color: #eee;
+}
+
+body.dark-mode a,
+body.dark-mode a.btn,
+body.dark-mode a.primary {
+  color: #fff;
+}
+
+/* Cards */
+body.dark-mode .card,
+body.dark-mode .project {
+  background-color: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff; /* ensures all text inside card is readable */
+}
+
+body.dark-mode .project strong,
+body.dark-mode .project .meta,
+body.dark-mode .projects-list .project small {
+  color: #fff;
+}
+
+/* Chips & badges */
+body.dark-mode .chip,
+body.dark-mode .badges a,
+body.dark-mode .badges button {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Section Titles */
+body.dark-mode .stack-title,
+body.dark-mode .projects-card .section-title h2,
+body.dark-mode .projects-card .projects-view-all {
+  color: #fff;
+}
+
+/* Footer */
+body.dark-mode footer {
+  color: var(--muted);
+}
+
+/* Floater / messenger */
+body.dark-mode .floater-messenger {
+  background-color: #00a2ff;
+  color: #fff;
+}
+
+/* Buttons */
+body.dark-mode .btn {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+body.dark-mode .btn.primary {
+  background: var(--gradient);
+  color: #fff;
+}
+
+body.dark-mode .chip:hover,
+body.dark-mode .btn:hover {
+  opacity: 0.85;
+  color: #fff;
+}
+
+/* Other text elements */
+body.dark-mode .experience-item h3,
+body.dark-mode .card-title,
+body.dark-mode .carousel-dots button.active {
+  color: #fff;
+}
+
+body.dark-mode hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
