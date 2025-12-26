@@ -111,7 +111,6 @@
       }
     }
 
-
     .site-footer {
         margin-top: 60px;
         padding: 24px 16px;
@@ -121,8 +120,56 @@
         border-top: 1px solid #e5e7eb;
         }
 
+
+        body.dark-mode {
+  background-color: #111;
+  color: #eee;
+}
+
+body.dark-mode .project {
+  background-color: #1c1c1c;
+  border-color: #333;
+}
+
+body.dark-mode .project small {
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+body.dark-mode a {
+  color: #fff;
+}
+
+body.dark-mode .back-link {
+  color: #ccc;
+}
+
+body.dark-mode .site-footer {
+  background-color: #1a1a1a;
+  color: #ccc;
+  border-top-color: #333;
+}
+
+/* Make all text inside project cards bright white in dark mode */
+body.dark-mode .project {
+  background-color: #1c1c1c;
+  border-color: #333;
+  color: #eee; /* ensures strong and meta text are light */
+}
+
+body.dark-mode .project strong,
+body.dark-mode .project .meta {
+  color: #fff; /* extra safety */
+}
+
+body.dark-mode .project small {
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+
   </style>
-  
+
 </head>
 <body>
 
@@ -236,6 +283,31 @@
   <p>Designed by: <strong>Norhan Kuyab</strong></p>
   <p>© 2025 khuyab dev – All Rights Reserved.</p>
 </footer>
+
+
+<script>
+  // Check localStorage for dark mode
+  const isDark = localStorage.getItem("dark-mode") === "true";
+  if(isDark) {
+    document.body.classList.add("dark-mode");
+  }
+
+  // Optional: toggle button on project page
+  const toggleBtn = document.createElement("button");
+  toggleBtn.id = "darkToggleProject";
+  toggleBtn.style.position = "fixed";
+  toggleBtn.style.top = "10px";
+  toggleBtn.style.right = "10px";
+  toggleBtn.style.zIndex = "999";
+  toggleBtn.innerHTML = isDark ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
+  document.body.appendChild(toggleBtn);
+
+  toggleBtn.addEventListener("click", () => {
+    const dark = document.body.classList.toggle("dark-mode");
+    toggleBtn.innerHTML = dark ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
+    localStorage.setItem("dark-mode", dark);
+  });
+</script>
 
 </body>
 </html>
