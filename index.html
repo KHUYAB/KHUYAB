@@ -121,7 +121,7 @@
       <i class="fa-solid fa-laptop-code"></i>
       Recent Projects
     </h2>
-    <a href="/project" class="projects-view-all">
+    <a href="/project.html" class="projects-view-all">
       <i class="fa-solid fa-eye"></i>
       <span>View All</span>
     </a>
@@ -215,7 +215,7 @@
 <article class="card certifications-card">
   <div class="section-title">
     <h2><i class="fa-solid fa-graduation-cap"></i> Recent Certifications</h2>
-    <a href="/certificate" class="projects-view-all">
+    <a href="/certificate.html" class="projects-view-all">
       <i class="fa-solid fa-eye"></i>
       <span>View All</span>
     </a>
@@ -505,37 +505,36 @@ body.dark .timeline-item .year {
   overflow: hidden;
   border-radius: 12px;
   margin-top: -10px;
-  margin-bottom: 0.8em;
-  transition: all 0.3s ease-in-out;
+  margin-bottom: 1em;
 }
 
 /* Slides */
 .hero-card .slide {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 150%;
   background-size: cover;
   background-position: center;
   opacity: 0;
-  animation: slideFade 12s infinite;
-  transition: opacity 0.6s ease;
+  animation: fadeSlides 8s infinite;
 }
 
-/* Slide animation delays */
+/* Stagger animation delays for multiple slides */
 .hero-card .slide:nth-child(1) { animation-delay: 0s; }
 .hero-card .slide:nth-child(2) { animation-delay: 4s; }
 .hero-card .slide:nth-child(3) { animation-delay: 8s; }
+.hero-card .slide:nth-child(4) { animation-delay: 10s; }
 
-/* Fade Animation */
-@keyframes slideFade {
-  0% { opacity: 0; }
-  8% { opacity: 1; }
-  33% { opacity: 1; }
-  41% { opacity: 0; }
+/* Smooth crossfade keyframes */
+@keyframes fadeSlides {
+  0% { opacity: 0; transform: scale(1.05); }
+  10% { opacity: 1; transform: scale(1); }
+  40% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0; transform: scale(0.95); }
   100% { opacity: 0; }
 }
 
-/* Dark mode fix - keep photos visible */
+/* Optional: Dark mode fix */
 body.dark .hero-card {
   filter: brightness(0.85);
 }
@@ -543,9 +542,10 @@ body.dark .hero-card {
 
 <!-- ===== HERO SLIDES ===== -->
 <div class="hero-card">
-  <div class="slide" style="background-image: url('assets/project/1.png');"></div>
-  <div class="slide" style="background-image: url('assets/project/2.png');"></div>
-  <div class="slide" style="background-image: url('assets/project/3.jpg');"></div>
+  <div class="slide" style="background-image: url('assets/project/1.jpg');"></div>
+  <div class="slide" style="background-image: url('assets/project/2.jpg');"></div>
+  <div class="slide" style="background-image: url('assets/project/3.png');"></div>
+  <div class="slide" style="background-image: url('assets/project/4.png');"></div>
 </div>
 
 
@@ -1147,4 +1147,3 @@ input.addEventListener('keypress', (e) => {
 <script src="script.js"></script>
 </body>
 </html>
-
