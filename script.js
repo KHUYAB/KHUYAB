@@ -86,3 +86,58 @@ document.querySelectorAll('.timeline-item').forEach(item => {
   });
 });
 
+//sliding image lisy
+const imageList = document.getElementById("image-list");
+const imageData = [
+  { src: "assets/animation/1.jpg" },
+  { src: "assets/animation/2.jpg" },
+  { src: "assets/animation/3.jpg" },
+  { src: "assets/animation/4.jpg" },
+  { src: "assets/animation/5.jpg" },
+  { src: "assets/animation/6.jpg" },
+  { src: "assets/animation/7.jpg" },
+  { src: "assets/animation/8.jpg" },
+  { src: "assets/animation/9.jpg" },
+  { src: "assets/animation/10.jpg" },
+  { src: "assets/animation/11.jpg" },
+  { src: "assets/animation/14.jpg" },
+  { src: "assets/animation/15.jpg" }
+];
+
+// Inject images without label
+function loadImages() {
+  imageData.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "timeline-card";
+    card.innerHTML = `<img src="${item.src}">`; // no <span> label
+    imageList.appendChild(card);
+  });
+}
+
+loadImages();
+
+function scrollSmooth(direction) {
+  const isMobile = window.innerWidth <= 768;
+
+  let step;
+
+  if (isMobile) {
+    step = imageList.clientWidth; // 1 image full width (mobile)
+  } else {
+    const card = imageList.querySelector(".timeline-card");
+    step = card.offsetWidth + 20; // 1 image + gap (desktop)
+  }
+
+  imageList.scrollTo({
+    left: imageList.scrollLeft + (step * direction),
+    behavior: "smooth"
+  });
+} 
+scrollLeft.addEventListener("click", () => scrollSmooth(-1));
+scrollRight.addEventListener("click", () => scrollSmooth(1));
+
+//security//
+document.addEventListener('contextmenu', e => {
+  e.preventDefault();
+  alert('Wag Mung Subokan Inspect masisira Buhay mo hahaha');
+});
