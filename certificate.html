@@ -257,8 +257,15 @@ document.addEventListener('keydown', e => {
   }
 });
 </script>
+<script>
+document.addEventListener('contextmenu', e => {
+  e.preventDefault();
+  alert('Right click disabled');
+});
+</script>
 
 
 </body>
 </html>
+
 
