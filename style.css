@@ -23,6 +23,62 @@
   margin-bottom: 0; /* removes extra gap after last paragraph */
 }
 
+/* Desktop layout: About left, sidebar right */
+.main-layout {
+  display: flex;
+  gap: 20px;
+}
+
+/* Left column takes remaining space */
+.allcard {
+  flex: 1;
+}
+
+/* Sidebar fixed width */
+aside {
+  width: 320px;
+}
+
+/* Mobile layout: stack all cards */
+@media (max-width: 768px) {
+  .main-layout {
+    display: block; /* stack everything vertically */
+  }
+
+  /* Force sidebar cards to appear after About card */
+  aside {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Adjust order: Experience first, then other sidebar cards */
+  .experience-card {
+    order: 1; /* will appear right after About */
+  }
+
+  .projects-card {
+    order: 2;
+  }
+
+  .certifications-card {
+    order: 3;
+  }
+
+  /* Other cards in sidebar remain after main content */
+  .tech-stack-card,
+  .contact-card,
+  .beyond-coding-card {
+    order: 4;
+  }
+
+  /* Add spacing between stacked cards */
+  .card {
+    margin-bottom: 20px;
+  }
+}
+
 .social-btn {
   margin-right: 8px;
   margin-bottom: 6px;
@@ -926,3 +982,430 @@ body.dark-mode .btn.calendar-btn:hover {
   opacity: 0.9;
 }
 
+.gallery-scroll-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.scroll-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: #fff;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.scroll-btn.left {
+  left: 5px; /* small padding from left edge */
+}
+
+.scroll-btn.right {
+  right: 5px; /* small padding from right edge */
+}
+
+/* Optional: hide buttons on very small screens if needed */
+@media (max-width: 350px) {
+  .scroll-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+}
+
+.scroll-btn.left {
+  position: absolute;
+  left: -25px;
+}
+
+.scroll-btn.right {
+  position: absolute;
+  right: -25px;
+}
+
+.image-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 15px 0;
+}
+
+.timeline-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.timeline-card img {
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid transparent;
+  transition: 0.3s ease;
+}
+
+
+/* Hover Zoom */
+.timeline-card:hover img {
+  transform: scale(1.05);
+}
+
+/* DARK MODE — white border card glow */
+body.dark-mode .timeline-card img {
+  border-color: #ffffff;
+}
+
+/* 📱 MOBILE VIEW */
+@media (max-width: 768px) {
+
+  .image-list {
+    gap: 0; /* walang pagitan para sakop buong width */
+    overflow-x: scroll;
+  }
+
+  .timeline-card {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .timeline-card img {
+    width: 92%;
+    height: auto;
+    max-height: 260px;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+
+  /* ilapit buttons sa image */
+  .scroll-btn.left {
+    left: 8px;
+  }
+
+  .scroll-btn.right {
+    right: 8px;
+  }
+}
+
+#image-articles-section {
+  padding-top: 5px;   /* mas dikit sa title */
+}
+
+.card-title {
+  margin-bottom: 5px; /* bawas gap sa baba ng title */
+}
+
+
+@media (max-width: 768px) {
+
+  .image-list {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .timeline-card {
+    min-width: 100%;
+  }
+
+  .timeline-card img {
+    width: 94%;
+    height: 320px;        /* ⬅️ mas mataas */
+    max-height: none;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+}/* 🖥️ DESKTOP VIEW — EXACT 5 IMAGES */
+@media (min-width: 769px) {
+
+  .image-list {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+    overflow-x: hidden;
+  }
+
+  .timeline-card {
+    flex: 0 0 calc((100% - 80px) / 5);
+    /* 4 gaps × 20px = 80px */
+  }
+
+  .timeline-card img {
+    width: 100%;
+    height: 160px;
+  }
+}
+
+/* ===== HERO SLIDER AS MAIN CARD ===== */
+.hero-card {
+  position: relative;
+  width: 100%;
+  height: 60px; /* adjust as needed */
+  overflow: hidden;
+  border-radius: 12px;
+  margin-top: -10px;
+  margin-bottom: 1em;
+}
+
+/* Slides */
+.hero-card .slide {
+  position: absolute;
+  width: 100%;
+  height: 150%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fadeSlides 8s infinite;
+}
+
+/* Stagger animation delays for multiple slides */
+.hero-card .slide:nth-child(1) { animation-delay: 0s; }
+.hero-card .slide:nth-child(2) { animation-delay: 4s; }
+.hero-card .slide:nth-child(3) { animation-delay: 8s; }
+.hero-card .slide:nth-child(4) { animation-delay: 10s; }
+
+/* Smooth crossfade keyframes */
+@keyframes fadeSlides {
+  0% { opacity: 0; transform: scale(1.05); }
+  10% { opacity: 1; transform: scale(1); }
+  40% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 0; }
+}
+
+/* Optional: Dark mode fix */
+body.dark .hero-card {
+  filter: brightness(0.85);
+}
+
+
+/* Section Title */
+.section-title h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Timeline */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+/* Timeline Line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: #f0e8e8;
+  transition: background 0.3s;
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  padding: 0 45px 8px 22px; /* adjust bottom padding for spacing */
+  margin-bottom: 8px;       /* space between items */
+}
+
+/* Dot */
+.timeline-item .dot {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s, border 0.3s;
+}
+
+/* Active Dot */
+.timeline-item.active .dot {
+  background: #501fff;
+}
+
+/* Content */
+.timeline-item .content h4 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.timeline-item .content p {
+  margin: 2px 0 0;
+  font-size: 0.75rem;
+  color: #666;
+  transition: color 0.3s;
+}
+
+/* Year */
+.timeline-item .year {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.7rem;
+  color: #999;
+  transition: color 0.3s;
+}
+
+/* Dark Mode Styles */
+body.dark .timeline::before {
+  background: #fff;
+}
+
+body.dark .timeline-item .dot {
+  background: transparent;
+  border: 1px solid #fff;
+}
+
+body.dark .timeline-item.active .dot {
+  background: #fff;
+}
+
+body.dark .timeline-item .content p {
+  color: #ccc;
+}
+
+body.dark .timeline-item .year {
+  color: #aaa;
+}
+
+
+  .certifications-card .section-title {
+  display: flex;
+  align-items: center;              /* vertical align */
+  justify-content: space-between;   /* left title, right button */
+  margin-bottom: 10px;              /* optional spacing */
+}
+
+.certifications-card .section-title h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;                         /* space between icon and text */
+  margin: 0;
+}
+
+.certifications-card .projects-view-all {
+  all: unset;                       /* reset inherited styles */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--accent);
+}
+
+.certifications-card .projects-view-all i {
+  font-size: 0.85rem;
+}
+
+.certifications-card .projects-view-all:hover {
+  opacity: 0.8;
+}
+
+/* =========================
+Recent Certifications
+========================= */
+
+/* Section title – bawasan ang space */
+.section-title {
+    margin-bottom: 6px; /* adjust kung gusto mo mas dikit */
+}
+
+.section-title h2 {
+    margin-bottom: 10px; /* tanggalin default h2 spacing */
+    font-weight: 600; /* section titles still bold */
+}
+
+/* Certifications wrapper – tanggal extra space sa taas */
+.Certifications-item {
+    margin-top: 10px;
+}
+
+.Certifications-list {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* compact gap between cards */
+}
+
+/* Individual certificate card */
+.Certifications {
+    background-color: var(--card);
+    padding: 10px 14px; /* liit nga padding */
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.Certifications:hover {
+    background-color: rgba(0,0,0,0.05);
+    transform: translateY(-1px);
+}
+
+body.dark-mode .Certifications:hover {
+    background-color: rgba(255,255,255,0.08);
+}
+
+/* Certificate title – normal font weight */
+.Certifications strong {
+    display: block;
+    font-size: 0.95rem; /* small font */
+    color: var(--accent);
+    margin-bottom: 3px; /* small space below title */
+    font-weight: 400; /* normal weight, not bold */
+}
+
+/* Meta info – date and school */
+.Certifications .meta {
+    font-size: 0.8rem; /* smaller font */
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Responsive tweaks - mobile */
+@media (max-width: 600px) {
+    .Certifications {
+        padding: 8px 12px;
+    }
+
+    .Certifications strong {
+        font-size: 0.9rem;
+    }
+
+    .Certifications .meta {
+        font-size: 0.75rem;
+    }
+}
+
+/* Optional: subtle icon sizing */
+.Certifications .meta i {
+    font-size: 0.8rem;
+    width: 16px;
+    text-align: center;
+}
