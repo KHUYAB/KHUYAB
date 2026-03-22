@@ -61,64 +61,64 @@
     /* Projects grid */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 24px;
     }
 
     /* Project card */
     .project {
       border: 1px solid #e5e7eb;
-      border-radius: 20px;
-      padding: 18px;
+      border-radius: 24px;
+      padding: 20px;
       background: #fff;
       transition: box-shadow 0.25s ease, transform 0.2s ease;
     }
 
     .project:hover {
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
       transform: translateY(-2px);
     }
 
-    /* Link wrapper: flex row with space between, items centered vertically */
+    /* Link wrapper: flex row with space-between, vertical alignment center */
     .project a {
       text-decoration: none;
       color: inherit;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
     }
 
-    /* Thumbnail image - now on the right side */
+    /* Thumbnail image - right side, now bigger */
     .project-thumbnail {
-      width: 64px;
-      height: 64px;
+      width: 80px;
+      height: 80px;
       object-fit: cover;
-      border-radius: 14px;
+      border-radius: 18px;
       flex-shrink: 0;
       background: #f0f2f5;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
       transition: transform 0.2s ease;
-      border: 1px solid rgba(0,0,0,0.03);
-      order: 2; /* ensures image stays on right even if HTML order changes */
+      border: 1px solid rgba(0,0,0,0.05);
+      order: 2; /* stays on right */
     }
 
     .project:hover .project-thumbnail {
       transform: scale(1.02);
     }
 
-    /* Text container takes remaining space, aligns left */
+    /* Text container takes remaining space, aligned left */
     .project-info {
       flex: 1;
-      min-width: 0; /* avoid overflow */
+      min-width: 0;
       order: 1;
     }
 
     .project-info strong {
       display: block;
-      font-size: 1.08rem;
+      font-size: 1.1rem;
       font-weight: 600;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       line-height: 1.4;
       letter-spacing: -0.2px;
     }
@@ -181,7 +181,7 @@
       filter: brightness(0.92);
     }
 
-    /* Responsive touches */
+    /* Responsive: reduce image size on smaller screens */
     @media (max-width: 640px) {
       body {
         padding: 20px;
@@ -189,17 +189,17 @@
 
       .projects-grid {
         grid-template-columns: 1fr;
-        gap: 18px;
+        gap: 20px;
       }
 
       .project-thumbnail {
-        width: 56px;
-        height: 56px;
-        border-radius: 12px;
+        width: 70px;
+        height: 70px;
+        border-radius: 16px;
       }
 
       .project a {
-        gap: 12px;
+        gap: 16px;
       }
 
       .page-title {
@@ -209,8 +209,9 @@
 
     @media (max-width: 480px) {
       .project-thumbnail {
-        width: 52px;
-        height: 52px;
+        width: 64px;
+        height: 64px;
+        border-radius: 14px;
       }
 
       .project {
@@ -253,6 +254,7 @@
       color: #ccc;
     }
   </style>
+  
 
 </head>
 <body>
