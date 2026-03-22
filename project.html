@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>All Projects</title>
 
-  <style>
+ <style>
     * {
       box-sizing: border-box;
       margin: 0;
@@ -79,16 +79,17 @@
       transform: translateY(-2px);
     }
 
-    /* Link wrapper: flex row for image + text */
+    /* Link wrapper: flex row with space between, items centered vertically */
     .project a {
       text-decoration: none;
       color: inherit;
       display: flex;
-      gap: 18px;
-      align-items: flex-start;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
     }
 
-    /* Thumbnail image style */
+    /* Thumbnail image - now on the right side */
     .project-thumbnail {
       width: 64px;
       height: 64px;
@@ -99,16 +100,18 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
       transition: transform 0.2s ease;
       border: 1px solid rgba(0,0,0,0.03);
+      order: 2; /* ensures image stays on right even if HTML order changes */
     }
 
     .project:hover .project-thumbnail {
       transform: scale(1.02);
     }
 
-    /* Text container inside card */
+    /* Text container takes remaining space, aligns left */
     .project-info {
       flex: 1;
       min-width: 0; /* avoid overflow */
+      order: 1;
     }
 
     .project-info strong {
@@ -196,7 +199,7 @@
       }
 
       .project a {
-        gap: 14px;
+        gap: 12px;
       }
 
       .page-title {
@@ -235,7 +238,7 @@
       }
     }
 
-    /* footer style (kept from original but optional) */
+    /* footer style */
     .site-footer {
       margin-top: 60px;
       padding: 24px 16px;
@@ -263,114 +266,114 @@
       <div class="page-title">All Projects</div>
     </div>
 
-    <!-- Projects Grid with left-side thumbnails -->
+    <!-- Projects Grid with right-aligned thumbnails -->
     <div class="projects-grid">
 
       <!-- 1. IOS -->
       <div class="project">
         <a href="https://cfcstiodrs.com/" target="_blank" rel="noopener noreferrer">
-          <img class="project-thumbnail" src="https://picsum.photos/id/1/64/64" alt="IOS project thumbnail" loading="lazy">
           <div class="project-info">
             <strong>IOS</strong>
             <div class="meta">For Cotabato Foundation College of Science and Technology – Registrar Office</div>
             <small>cfcstiodrs.com</small>
           </div>
+          <img class="project-thumbnail" src="https://picsum.photos/id/1/64/64" alt="IOS project thumbnail" loading="lazy">
         </a>
       </div>
 
       <!-- 2. BSIT Student Portal -->
       <div class="project">
         <a href="https://khuyab.github.io/pikitcampuscapstonrproject.github.io/" target="_blank" rel="noopener noreferrer">
-          <img class="project-thumbnail" src="https://picsum.photos/id/26/64/64" alt="BSIT portal thumbnail" loading="lazy">
           <div class="project-info">
             <strong>BSIT Student Portal</strong>
             <div class="meta">Portal website for BSIT students in Pikit External Campus</div>
             <small>pikitcampuscapstonrproject.github.io</small>
           </div>
+          <img class="project-thumbnail" src="https://picsum.photos/id/26/64/64" alt="BSIT portal thumbnail" loading="lazy">
         </a>
       </div>
 
       <!-- 3. My Web App -->
       <div class="project">
         <a href="https://personalweb-app.github.io/MyPortfolio/" target="_blank" rel="noopener noreferrer">
-          <img class="project-thumbnail" src="https://picsum.photos/id/20/64/64" alt="Web app automation thumbnail" loading="lazy">
           <div class="project-info">
             <strong>My Web App</strong>
             <div class="meta">Automation</div>
             <small>vppfvi.readdy.com</small>
           </div>
+          <img class="project-thumbnail" src="https://picsum.photos/id/20/64/64" alt="Web app automation thumbnail" loading="lazy">
         </a>
       </div>
 
       <!-- 4. Real-Time Leaderboard -->
       <div class="project">
         <a href="https://norhan-gwapo-kuyab-1.jimdosite.com/" target="_blank" rel="noopener noreferrer">
-          <img class="project-thumbnail" src="https://picsum.photos/id/29/64/64" alt="leaderboard dashboard thumbnail" loading="lazy">
           <div class="project-info">
             <strong>Real-Time Leaderboard</strong>
             <div class="meta">Online Food Ordering and Delivery Services</div>
             <small>norhan-gwapo-kuyab-1.jimdosite.com</small>
           </div>
+          <img class="project-thumbnail" src="https://picsum.photos/id/29/64/64" alt="leaderboard dashboard thumbnail" loading="lazy">
         </a>
       </div>
 
       <!-- 5. Pebpoloan INC -->
       <div class="project">
         <a href="https://vppfvi.readdy.co/" target="_blank" rel="noopener noreferrer">
-          <img class="project-thumbnail" src="https://picsum.photos/id/104/64/64" alt="Barangay information system" loading="lazy">
           <div class="project-info">
             <strong>Pebpoloan INC</strong>
             <div class="meta">Barangay Pebpoloan Information System</div>
             <small>readdy.com</small>
           </div>
+          <img class="project-thumbnail" src="https://picsum.photos/id/104/64/64" alt="Barangay information system" loading="lazy">
         </a>
       </div>
 
       <!-- 6. Advanced Detection System -->
       <div class="project">
         <a href="https://detection-app-tau.vercel.app/" target="_blank" rel="noopener noreferrer">
-          <img class="project-thumbnail" src="https://picsum.photos/id/155/64/64" alt="AI detection system" loading="lazy">
           <div class="project-info">
             <strong>Advanced Detection System</strong>
             <div class="meta">AI-powered surveillance and monitoring system</div>
             <small>detection-app-tau.vercel.app</small>
           </div>
+          <img class="project-thumbnail" src="https://picsum.photos/id/155/64/64" alt="AI detection system" loading="lazy">
         </a>
       </div>
 
       <!-- 7. Njay Food -->
       <div class="project">
         <a href="https://norhan-gwapo-kuyab-1.jimdosite.com/" target="_blank" rel="noopener noreferrer">
-          <img class="project-thumbnail" src="https://picsum.photos/id/127/64/64" alt="Njay Food spot thumbnail" loading="lazy">
           <div class="project-info">
             <strong>Njay Food</strong>
             <div class="meta">Njay Foods Spot Web App</div>
             <small>njay.com</small>
           </div>
+          <img class="project-thumbnail" src="https://picsum.photos/id/127/64/64" alt="Njay Food spot thumbnail" loading="lazy">
         </a>
       </div>
 
       <!-- 8. CMOPIT -->
       <div class="project">
         <a href="https://pikitmotorcyclepermit.com/home/client/" target="_blank" rel="noopener noreferrer">
-          <img class="project-thumbnail" src="https://picsum.photos/id/96/64/64" alt="inventory tracking thumbnail" loading="lazy">
           <div class="project-info">
             <strong>CMOPIT</strong>
             <div class="meta">Automated inventory tracking and stock monitoring</div>
             <small>pikitmotorcyclepermit.com</small>
           </div>
+          <img class="project-thumbnail" src="https://picsum.photos/id/96/64/64" alt="inventory tracking thumbnail" loading="lazy">
         </a>
       </div>
 
       <!-- 9. Capstone Project Share Ideas -->
       <div class="project">
         <a href="https://capstone-generator-share-idea.vercel.app/" target="_blank" rel="noopener noreferrer">
-          <img class="project-thumbnail" src="https://picsum.photos/id/145/64/64" alt="capstone ideas generator" loading="lazy">
           <div class="project-info">
             <strong>Capstone Project Share Ideas</strong>
             <div class="meta">Empower students to generate innovative, realistic, and research-driven capstone ideas</div>
             <small>capstone-generator-share-idea.vercel.app</small>
           </div>
+          <img class="project-thumbnail" src="https://picsum.photos/id/145/64/64" alt="capstone ideas generator" loading="lazy">
         </a>
       </div>
     </div>
