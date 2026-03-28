@@ -1,18 +1,267 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Norhan gwapo</title>
- <link rel="shortcut icon" href="assets/khuyab.jpg">
+  <title>Norhan gwapo ✦ Dev Portfolio</title>
+  <link rel="shortcut icon" href="assets/khuyab.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
   <link href="style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="canonical" href="https://gerenaa.netlify.app/" />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
+  
+ <style>
+    /* ========== CHATBOT BUTTON (RIGHT SIDE, ICON + TEXT) ========== */
+    .chatbot-left-btn {
+      position: fixed;
+      right: 24px;          /* right aligned */
+      bottom: 30px;
+      background: linear-gradient(135deg, #2c3e66, #1a2a44);
+      border-radius: 40px;   /* pill shape */
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.1);
+      transition: transform 0.25s ease, box-shadow 0.2s;
+      z-index: 1000;
+      border: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
 
+    .chatbot-left-btn i {
+      font-size: 20px;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+    }
+
+    .chatbot-left-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+      background: linear-gradient(135deg, #3a547c, #1f2f4e);
+    }
+
+    /* CHAT WIDGET (right side, pops above button) */
+    .chat-widget {
+      position: fixed;
+      right: 24px;          /* right aligned */
+      bottom: 100px;
+      width: 340px;
+      max-width: calc(100vw - 48px);
+      background: var(--card-bg, #ffffff);
+      border-radius: 24px;
+      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.05);
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* dark mode compatibility */
+    body.dark .chat-widget {
+      background: #1e293b;
+      border: 1px solid #334155;
+      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.5);
+    }
+
+    body.dark .chat-header {
+      background: #0f172a;
+      border-bottom: 1px solid #334155;
+    }
+
+    body.dark .chat-message.bot {
+      background: #2d3a4e;
+      color: #e2e8f0;
+    }
+
+    body.dark .chat-message.user {
+      background: #2563eb;
+      color: white;
+    }
+
+    body.dark .chat-input-area {
+      border-top: 1px solid #334155;
+      background: #0f172a;
+    }
+
+    body.dark .chat-input-area input {
+      background: #1e293b;
+      color: #f1f5f9;
+      border-color: #475569;
+    }
+
+    .chat-header {
+      background: #f8fafc;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e9eef3;
+      cursor: pointer;
+    }
+
+    .chat-header-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #0f172a;
+    }
+
+    body.dark .chat-header-title {
+      color: #e2e8f0;
+    }
+
+    .chat-header-title i {
+      font-size: 1.25rem;
+      color: #3b82f6;
+    }
+
+    .close-chat {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #64748b;
+      transition: 0.2s;
+    }
+
+    .close-chat:hover {
+      color: #ef4444;
+    }
+
+    .chat-messages {
+      height: 320px;
+      overflow-y: auto;
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      scroll-behavior: smooth;
+    }
+
+    .chat-message {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      word-wrap: break-word;
+      animation: fadeSlideUp 0.2s ease;
+    }
+
+    .chat-message.bot {
+      background: #eef2ff;
+      color: #1e293b;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-message.user {
+      background: #2563eb;
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-input-area {
+      display: flex;
+      padding: 12px;
+      background: white;
+      border-top: 1px solid #eef2ff;
+      gap: 8px;
+    }
+
+    .chat-input-area input {
+      flex: 1;
+      border: 1px solid #cbd5e1;
+      border-radius: 40px;
+      padding: 10px 14px;
+      font-size: 0.85rem;
+      outline: none;
+      transition: 0.2s;
+      font-family: inherit;
+    }
+
+    .chat-input-area input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+    }
+
+    .chat-input-area button {
+      background: #2563eb;
+      border: none;
+      border-radius: 40px;
+      width: 42px;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 1.1rem;
+    }
+
+    .chat-input-area button:hover {
+      background: #1d4ed8;
+    }
+
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 8px 14px;
+      background: #eef2ff;
+      border-radius: 20px;
+      width: fit-content;
+      font-size: 0.75rem;
+    }
+
+    .typing-indicator span {
+      width: 6px;
+      height: 6px;
+      background: #475569;
+      border-radius: 50%;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: translateY(0);}
+      50% { opacity: 1; transform: translateY(-2px);}
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(8px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    .chat-widget.hidden {
+      display: none;
+    }
+
+    /* RESPONSIVE: right alignment on small screens */
+    @media (max-width: 560px) {
+      .chat-widget {
+        width: 300px;
+        right: 16px;          /* right aligned */
+        bottom: 90px;
+        left: auto;           /* override any left */
+      }
+      .chatbot-left-btn {
+        right: 16px;          /* right aligned */
+        bottom: 20px;
+        left: auto;
+        padding: 10px 16px;   /* keep pill shape */
+        font-size: 14px;
+        white-space: nowrap;
+      }
+      .chatbot-left-btn i {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -53,7 +302,7 @@
       <article class="card about-section">
       <div class="section-title">
     <h2><i class="fa-solid fa-briefcase"></i> About</h2>
-        </header>
+        </div>
 
       <p class="about-text">
         I'm a frontend developer specializing in building responsive and modern web interfaces using HTML, CSS, JavaScript, and popular frameworks like React and Vue. I focus on creating user-friendly experiences and visually appealing designs.
@@ -69,7 +318,6 @@
       </article>
 
  <!-- On-the-Job Training -->
-<!-- On-the-Job Training -->
 <article class="card">
   <div class="section-title">
     <h2><i class="fa-solid fa-briefcase"></i> On-the-Job Training</h2>
@@ -568,7 +816,7 @@
   </div>
 </article>
 
-</article>  
+  
     <!-- Footer -->
     <footer>
       Designed by: Norhan kuyab
@@ -576,19 +824,188 @@
       © 2025 CFCST – All Rights Reserved.
     </footer>
   </div>
-  
-<script src="script.js"></script>
+
+  <!-- ========== CHATBOT LEFT BUTTON & WIDGET (with GROQ API) ========== -->
+  <div id="chatbotLeftBtn" class="chatbot-left-btn">
+  <i class="fa-regular fa-message"></i> Chat with Kuyab
+</div>
+
+  <div id="chatWidget" class="chat-widget hidden">
+    <div class="chat-header" id="chatHeader">
+      <div class="chat-header-title">
+        <i class="fa-regular fa-comment-dots"></i>
+        <span>Kuyab Assistant</span>
+      </div>
+      <button id="closeChatBtn" class="close-chat"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="chatMessages" class="chat-messages">
+      <div class="chat-message bot">
+        👋Hello! I'm Norhan Kuyab Assistant. Feel free to ask about Norhan's projects, skills, and experience.
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" id="chatInput" placeholder="Type your message..." autocomplete="off">
+      <button id="sendChatBtn"><i class="fa-regular fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+    <script>
+    // ========== CHATBOT LOGIC WITH GROQ API (BILINGUAL) ==========
+    (function() {
+      // ---------- CONFIGURATION ----------
+      const API_KEY = "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";
+      const API_URL = "https://api.groq.com/openai/v1/chat/completions";
+      
+      // System prompt describing Norhan's portfolio, with language instruction
+      const SYSTEM_PROMPT = `You are Kuyab Assistant, a helpful chatbot for Norhan's portfolio website. Norhan (also known as Kuyab Dev) is a frontend developer and UI/UX designer from Pebpoloan, Carmen. He is currently a BSIT student at CFCST Pikit External Campus. His skills include: HTML, CSS, JavaScript, React, Vue, Tailwind, PHP, Laravel, MySQL, networking (CCNA), and UI/UX design. He completed an OJT at R&J Network and Data Solution (Jan–Mar 2025) where he handled network design, CCTV installation, Piso WiFi setup, fiber cabling, and desktop support. His notable projects: BSIT Student Portal, IOS Registrar System, Advanced Detection App, Njay Food App, and more. He has certifications in Web Development, CCNA, and Ethical Hacking. He is available for collaborations and can be contacted via email (norhankuyab@gmail.com) or through social links on his site.
+
+**Language rule:** If the user writes in Tagalog (or Taglish), respond in Tagalog. If the user writes in English, respond in English. Be friendly, concise, and informative.`;
+
+      // DOM elements
+      const btn = document.getElementById('chatbotLeftBtn');
+      const widget = document.getElementById('chatWidget');
+      const closeBtn = document.getElementById('closeChatBtn');
+      const chatHeader = document.getElementById('chatHeader');
+      const messagesDiv = document.getElementById('chatMessages');
+      const chatInput = document.getElementById('chatInput');
+      const sendBtn = document.getElementById('sendChatBtn');
+
+      // Store conversation history (includes system prompt)
+      let conversationHistory = [
+        { role: "system", content: SYSTEM_PROMPT }
+      ];
+
+      // Helper: scroll to bottom
+      function scrollToBottom() {
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      }
+
+      // Add message to UI and optionally to history (for user/bot)
+      function addMessage(text, isUser = false, addToHistory = true) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
+        msgDiv.textContent = text;
+        messagesDiv.appendChild(msgDiv);
+        scrollToBottom();
+        
+        if (addToHistory) {
+          conversationHistory.push({ role: isUser ? "user" : "assistant", content: text });
+        }
+      }
+
+      // Show typing indicator
+      let typingDiv = null;
+      function showTyping() {
+        if (typingDiv) return;
+        typingDiv = document.createElement('div');
+        typingDiv.className = 'typing-indicator';
+        typingDiv.innerHTML = '<span></span><span></span><span></span>';
+        messagesDiv.appendChild(typingDiv);
+        scrollToBottom();
+      }
+      
+      function hideTyping() {
+        if (typingDiv) {
+          typingDiv.remove();
+          typingDiv = null;
+        }
+      }
+
+      // Call Groq API
+      async function getBotReply() {
+        try {
+          const requestBody = {
+            model: "llama-3.3-70b-versatile",
+            messages: conversationHistory,
+            temperature: 0.7,
+            max_tokens: 500
+          };
+          
+          const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${API_KEY}`
+            },
+            body: JSON.stringify(requestBody)
+          });
+          
+          if (!response.ok) {
+            const errorData = await response.json();
+            console.error("API Error:", errorData);
+            return "Sorry, I'm having trouble connecting right now. Please try again later! 😅";
+          }
+          
+          const data = await response.json();
+          const reply = data.choices[0].message.content;
+          return reply;
+        } catch (error) {
+          console.error("Fetch error:", error);
+          return "Oops! Something went wrong with the AI service. Maybe check your internet? 🔌";
+        }
+      }
+
+      // Handle sending message
+      async function handleSendMessage() {
+        const rawMessage = chatInput.value.trim();
+        if (!rawMessage) return;
+        
+        // Disable input while processing
+        sendBtn.disabled = true;
+        chatInput.disabled = true;
+        
+        // Add user message to UI and history
+        addMessage(rawMessage, true, true);
+        chatInput.value = '';
+        
+        // Show typing indicator
+        showTyping();
+        
+        // Get bot reply from API (which uses current history)
+        const botReply = await getBotReply();
+        
+        // Hide typing, add bot reply
+        hideTyping();
+        addMessage(botReply, false, true);
+        
+        // Re-enable input
+        sendBtn.disabled = false;
+        chatInput.disabled = false;
+        chatInput.focus();
+      }
+
+      // Event listeners
+      sendBtn.addEventListener('click', handleSendMessage);
+      chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleSendMessage();
+      });
+
+      // Toggle widget open/close
+      function openWidget() {
+        widget.classList.remove('hidden');
+        setTimeout(() => chatInput.focus(), 100);
+      }
+      function closeWidget() {
+        widget.classList.add('hidden');
+      }
+
+      btn.addEventListener('click', openWidget);
+      closeBtn.addEventListener('click', closeWidget);
+      chatHeader.addEventListener('click', (e) => {
+        if (e.target !== closeBtn && !closeBtn.contains(e.target)) {
+          chatInput.focus();
+        }
+      });
+      
+      // Add the initial welcome message to history (bilingual hint)
+      const welcomeMessage = "👋 Hey! I'm Kuyab Bot. You can speak Tagalog or English – I'll reply in the same language. Ask me about Norhan's skills, projects, OJT, or anything!";
+      conversationHistory.push({ role: "assistant", content: welcomeMessage });
+      
+      // dark mode sync
+      const observer = new MutationObserver(() => {});
+      observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    })();
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
