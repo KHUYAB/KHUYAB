@@ -928,8 +928,22 @@
     // ========== CHATBOT LOGIC WITH GROQ API (BILINGUAL) ==========
     (function() {
       // ---------- CONFIGURATION ----------
-      const API_KEY = "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";
-      const API_URL = "https://api.groq.com/openai/v1/chat/completions";
+      const API_KEY = "AIzaSyA46TypRRzTqUlhlk3PSBfpfhN30v_9sIU";
+      const API_URL = "curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent" \
+  -H 'Content-Type: application/json' \
+  -H 'X-goog-api-key: AIzaSyA46TypRRzTqUlhlk3PSBfpfhN30v_9sIU' \
+  -X POST \
+  -d '{
+    "contents": [
+      {
+        "parts": [
+          {
+            "text": "Explain how AI works in a few words"
+          }
+        ]
+      }
+    ]
+  }'";
       
       // System prompt describing Norhan's portfolio, with language instruction
       const SYSTEM_PROMPT = `You are Kuyab Assistant, a helpful chatbot for Norhan's portfolio website. Norhan (also known as Kuyab Dev) is a frontend developer and UI/UX designer from Pebpoloan, Carmen. He is currently a BSIT student at CFCST Pikit External Campus. His skills include: HTML, CSS, JavaScript, React, Vue, Tailwind, PHP, Laravel, MySQL, networking (CCNA), and UI/UX design. He completed an OJT at R&J Network and Data Solution (Jan–Mar 2025) where he handled network design, CCTV installation, Piso WiFi setup, fiber cabling, and desktop support. His notable projects: BSIT Student Portal, IOS Registrar System, Advanced Detection App, Njay Food App, and more. He has certifications in Web Development, CCNA, and Ethical Hacking. He is available for collaborations and can be contacted via email (norhankuyab@gmail.com) or through social links on his site.
